@@ -1,0 +1,21 @@
+{% extends 'domain/authentication/layout/base.html.twig' %}
+{% block title 'Connexion' %}
+
+{% block body %}
+    <div class="nk-block-head">
+        <div class="nk-block-head-content">
+            <h5 class="nk-block-title fw-bolder">Connexion - Indabax DRC</h5>
+            <div class="nk-block-des"><p>Bon retour parmi nous, connectez-vous pour continuer !</p></div>
+        </div>
+    </div>
+    {{ form_start(form) }}
+    {{ form_row(form.email) }}
+    <div class="form-group">
+        <div class="form-label-group">
+            {{ form_label(form.password) }}
+        </div>
+        {{ form_widget(form.password)}}
+    </div>
+    <button class="btn btn-lg btn-primary btn-block">Se connecter</button>
+    {{ form_end(form) }}
+{% endblock %}
