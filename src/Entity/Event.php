@@ -39,6 +39,15 @@ class Event
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: Talk::class, orphanRemoval: true)]
     private Collection $talks;
 
+    #[ORM\Column(length: 255)]
+    private ?string $location = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $lat = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $lng = null;
+
     public function __construct()
     {
         $this->talks = new ArrayCollection();
@@ -147,6 +156,42 @@ class Event
                 $talk->setEvent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLocation(): ?string
+    {
+        return $this->location;
+    }
+
+    public function setLocation(string $location): self
+    {
+        $this->location = $location;
+
+        return $this;
+    }
+
+    public function getLat(): ?string
+    {
+        return $this->lat;
+    }
+
+    public function setLat(?string $lat): self
+    {
+        $this->lat = $lat;
+
+        return $this;
+    }
+
+    public function getLng(): ?string
+    {
+        return $this->lng;
+    }
+
+    public function setLng(?string $lng): self
+    {
+        $this->lng = $lng;
 
         return $this;
     }
