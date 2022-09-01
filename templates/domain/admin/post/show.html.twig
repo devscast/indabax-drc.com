@@ -1,0 +1,65 @@
+{% extends 'shared/layout/base.html.twig' %}
+{% block title "Détails de l'article" %}
+
+{% block header %}
+    {% embed "shared/component/_header.html.twig" %}
+        {% block header_title %}
+            {{ 'posts' | trans | title }} / <strong class="text-primary small">#{{ data.id }}</strong>
+        {% endblock %}
+        {% block header_action_list %}
+            <li>
+                <a href="{{ path('admin_post_index') }}" class="btn btn-white btn-dim btn-outline-light" aria-label="{{ 'back' | trans }}" title="{{ 'back' | trans }}">
+                    {{ 'arrow-long-left' | icon }}
+                    <span>{{ 'back' | trans }}</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('admin_post_edit', {id: data.id}) }}" class="btn btn-primary" aria-label="{{ 'edit' | trans }}" title="{{ 'edit' | trans }}">
+                    {{ 'edit-alt-fill' | icon }}
+                    <span>{{ 'edit' | trans }}</span>
+                </a>
+            </li>
+            <li>
+                <form class="d-inline-block" method="post" action="{{ path('admin_post_delete', {id: data.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                    <input type="hidden" name="_token" value='{{ csrf_token("delete#{data.id}") }}'>
+                    <button is="app-confirm-button" title="{{ 'delete' | trans }}" aria-label="{{ 'delete' | trans }}" class="btn btn-danger">
+                        {{ 'trash-empty-fill' | icon }}
+                        <span>{{ 'delete' | trans }}</span>
+                    </button>
+                </form>
+            </li>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+    {% embed 'shared/component/card/_simple.html.twig' %}
+        {% block simple_card_title 'couverture' %}
+        {% block simple_card_body %}
+            <img width="50%" alt="{{ data.title }}" src="{{ vich_uploader_asset(data, 'thumbnail_file') }}">
+        {% endblock %}
+    {% endembed %}
+    {% embed "shared/component/card/_detail.html.twig" %}
+        {% import 'shared/component/_macros.html.twig' as component %}
+        {% block detail_card_body %}
+            <div class="nk-block">
+                <div class="nk-block-head">
+                    <h5 class="title">{{ data.title }}</h5>
+               </div>
+                <div class="profile-ud-list">
+                    {{ component.user_data_item("auteur", data.author.email) }}
+                    {{ component.user_data_item("slug", data.slug) }}
+                    {{ component.user_data_item("date de création", data.createdAt | date) }}
+                </div>
+            </div>
+        {% endblock %}
+    {% endembed %}
+    {% embed "shared/component/card/_simple.html.twig" %}
+        {% block simple_card_title "content" | trans %}
+        {% block simple_card_body %}
+            {% apply markdown_to_html %}
+                {{ data.content }}
+            {% endapply %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'shared/layout/base.html.twig' %}
+{% block title 'Blog' %}
+
+{% block header %}
+    {% embed "shared/component/_header.html.twig" %}
+        {% block header_title  "Gestion d'articles" %}
+        {% block header_action_list %}
+            <li class="btn-group">
+                <a href="{{ path('admin_post_new') }}" class="btn btn-white btn-dim btn-outline-light">
+                    {{ 'plus' | icon }}
+                    <span>Ajouter un article</span>
+                </a>
+            </li>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+    {% if data | length > 0 %}
+        {% embed "shared/component/card/_list.html.twig" %}
+            {% block list_card_table_head %}
+                <th>#</th>
+                <th>Titre</th>
+                <th>Auteur</th>
+                <th>Status</th>
+                <th>&nbsp;</th>
+            {% endblock %}
+            {% block list_card_table_body %}
+                {% for row in data %}
+                    <tr>
+                        <td>{{ row.id }}</td>
+                        <td>{{ row.title | u.truncate(60, '...') }}</td>
+                        <td>{{ row.author.email }}</td>
+                        <td>{{ row.isOnline | boolean }}</td>
+                        <td class="tb-odr-action">
+                            <div class="tb-odr-btns d-none d-md-inline">
+                                <a href="{{ path('admin_post_show', {id: row.id}) }}" class="btn btn-sm btn-primary" title="{{ 'global.show' | trans([], 'messages') }}">
+                                    {{ 'eye-alt-fill' | icon }}
+                                    <span>voir</span>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endblock %}
+        {% endembed %}
+    {% else %}
+        <div class="card card-stretch">
+            <div class="card-body">
+                <div class="d-flex justify-content-center align-center">
+                    <div class="nk-block-content nk-error-ld text-center">
+                        <img src="{{ asset('images/contact.svg') }}" alt="aucune données" width="200">
+                        <p class="nk-error-description">Vous n'avez aucun article</p>
+                        <a href="{{ path('admin_post_new') }}" class="btn btn-primary">
+                            Ajouter un article
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

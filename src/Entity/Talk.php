@@ -29,12 +29,6 @@ class Talk
     #[ORM\Column]
     private ?\DateTimeImmutable $schedule_at = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $created_at = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?\DateTimeImmutable $updated_at = null;
-
     #[ORM\ManyToOne(inversedBy: 'talks')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Event $event = null;
@@ -92,30 +86,6 @@ class Talk
     public function setScheduleAt(\DateTimeImmutable $schedule_at): self
     {
         $this->schedule_at = $schedule_at;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->created_at;
-    }
-
-    public function setCreatedAt(\DateTimeImmutable $created_at): self
-    {
-        $this->created_at = $created_at;
-
-        return $this;
-    }
-
-    public function getUpdatedAt(): ?\DateTimeImmutable
-    {
-        return $this->updated_at;
-    }
-
-    public function setUpdatedAt(?\DateTimeImmutable $updated_at): self
-    {
-        $this->updated_at = $updated_at;
 
         return $this;
     }

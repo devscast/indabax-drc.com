@@ -20,11 +20,16 @@ final class MainSidebar extends AbstractSidebar
     public function build(SidebarBuilderInterface $builder): SidebarCollection
     {
         return $builder
-            ->add(new SidebarHeader('Contacts'))
-            //->add(new SidebarLink('app_index', 'Contacts', 'call'))
-            //->add(new SidebarLink('app_favorite_index', 'Favoris', 'star'))
-            //->add(new SidebarLink('app_group_index', 'Groupes', 'users'))
-            //->add(new SidebarLink('app_group_new', 'Recherche', 'search'))
+            ->add(new SidebarHeader('Gestion'))
+            ->add(new SidebarLink('admin_post_index', 'Blog', 'file-docs'))
+            ->add(new SidebarLink('admin_speaker_index', 'Speakers', 'users'))
+            ->add(new SidebarLink('admin_speaker_index', 'Talks', 'msg-circle'))
+            ->add(new SidebarLink('admin_speaker_index', 'Événement', 'calendar'))
+
+            ->add(new SidebarHeader('Paramètres'))
+            ->add(new SidebarLink('admin_speaker_index', 'Prix', 'sign-dollar'))
+            ->add(new SidebarLink('admin_speaker_index', 'Administrateur', 'users'))
+            ->add(new SidebarLink('admin_speaker_index', 'Comité', 'users'))
 
             ->setTranslationDomain('messages')
             ->create();

@@ -7,10 +7,16 @@ namespace App\Entity;
 use App\Repository\PostRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
+#[Vich\Uploadable]
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 class Post
 {
+    use TimestampTrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -28,17 +34,19 @@ class Post
     #[ORM\Column(length: 255)]
     private ?string $thumbnail_url = null;
 
+    #[Vich\UploadableField('post', 'thumbnail_url')]
+    private ?File $thumbnail_file = null;
+
     #[ORM\ManyToOne]
     private ?User $author = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $created_at = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?\DateTimeImmutable $updated_at = null;
-
-    #[ORM\Column]
     private ?bool $is_online = null;
+
+    public function __construct()
+    {
+        $this->created_at = new \DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
@@ -86,7 +94,7 @@ class Post
         return $this->thumbnail_url;
     }
 
-    public function setThumbnailUrl(string $thumbnail_url): self
+    public function setThumbnailUrl(?string $thumbnail_url): self
     {
         $this->thumbnail_url = $thumbnail_url;
 
@@ -105,30 +113,6 @@ class Post
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->created_at;
-    }
-
-    public function setCreatedAt(\DateTimeImmutable $created_at): self
-    {
-        $this->created_at = $created_at;
-
-        return $this;
-    }
-
-    public function getUpdatedAt(): ?\DateTimeImmutable
-    {
-        return $this->updated_at;
-    }
-
-    public function setUpdatedAt(?\DateTimeImmutable $updated_at): self
-    {
-        $this->updated_at = $updated_at;
-
-        return $this;
-    }
-
     public function isIsOnline(): ?bool
     {
         return $this->is_online;
@@ -138,6 +122,20 @@ class Post
     {
         $this->is_online = $is_online;
 
+        return $this;
+    }
+
+    public function getThumbnailFile(): ?File
+    {
+        return $this->thumbnail_file;
+    }
+
+    public function setThumbnailFile(?File $thumbnail_file): self
+    {
+        $this->thumbnail_file = $thumbnail_file;
+        if ($this->thumbnail_file instanceof UploadedFile) {
+            $this->updated_at = new \DateTimeImmutable();
+        }
         return $this;
     }
 }
