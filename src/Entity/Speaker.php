@@ -6,7 +6,11 @@ namespace App\Entity;
 
 use App\Repository\SpeakerRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
+#[Vich\Uploadable]
 #[ORM\Entity(repositoryClass: SpeakerRepository::class)]
 class Speaker
 {
@@ -31,6 +35,17 @@ class Speaker
 
     #[ORM\Column(length: 255)]
     private ?string $avatar_url = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
+
+    #[Vich\UploadableField('avatar', 'avatar_url')]
+    private ?File $avatar_file = null;
+
+    public function __construct()
+    {
+        $this->created_at = new \DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
@@ -90,10 +105,36 @@ class Speaker
         return $this->avatar_url;
     }
 
-    public function setAvatarUrl(string $avatar_url): self
+    public function setAvatarUrl(?string $avatar_url): self
     {
         $this->avatar_url = $avatar_url;
 
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getAvatarFile(): ?File
+    {
+        return $this->avatar_file;
+    }
+
+    public function setAvatarFile(?File $file): self
+    {
+        $this->avatar_file = $file;
+        if ($this->avatar_file instanceof UploadedFile) {
+            $this->updated_at = new \DateTimeImmutable();
+        }
         return $this;
     }
 }

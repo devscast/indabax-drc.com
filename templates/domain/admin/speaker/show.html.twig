@@ -1,0 +1,54 @@
+{% extends 'shared/layout/base.html.twig' %}
+{% block title "Speaher #{data.name}" %}
+
+{% block header %}
+    {% embed "shared/component/_header.html.twig" %}
+        {% block header_title "Détails du speaker" %}
+        {% block header_action_list %}
+            <li class="btn-group">
+                <a href="{{ path('admin_speaker_index') }}" class="btn btn-white btn-dim btn-outline-light">
+                    {{ 'arrow-long-left' | icon }}
+                    <span>tous les speakers</span>
+                </a>
+                <a href="{{ path('admin_speaker_edit', {id: data.id}) }}" class="btn btn-white btn-dim btn-outline-light">
+                    {{ 'edit' | icon }}
+                    <span>modifier</span>
+                </a>
+                <form method="post" action="{{ path('admin_speaker_delete', {id: data.id}) }}" class="d-inline-block" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet élément ?');">
+                    <input type="hidden" name="_token" value="{{ csrf_token("delete#{data.id}") }}">
+                    <button class="btn btn-white btn-dim btn-outline-light btn-delete">
+                        {{ 'delete' | icon }}
+                        <span>supprimer</span>
+                    </button>
+                </form>
+            </li>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+    {% embed "shared/component/card/_detail.html.twig" %}
+        {% import 'shared/component/_macros.html.twig' as component %}
+        {% block detail_card_body %}
+            <div class="nk-block">
+                <div class="nk-block-head">
+                    <div class="user-avatar xl mb-2">
+                        {% if data.avatarUrl %}
+                            <a href="{{ data.link }}" title="redimensionner la photo de profile">
+                                <img src="{{ vich_uploader_asset(data, 'avatar_file') }}" alt="avatar du contact">
+                            </a>
+                        {% else %}
+                            <span>{{ data.name | first }}</span>
+                        {% endif %}
+                    </div>
+                    <h5 class="title">{{ data.name }}</h5>
+                </div>
+                <div class="profile-ud-list">
+                    {{ component.user_data_item('titre', data.jobTitle) }}
+                    {{ component.user_data_item('Organisation', data.organization) }}
+                    {{ component.user_data_link('Lien', data.link) }}
+                </div>
+            </div>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
