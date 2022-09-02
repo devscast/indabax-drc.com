@@ -15,6 +15,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 class Post
 {
+    use SlugTrait;
     use TimestampTrait;
 
     #[ORM\Id]
@@ -27,9 +28,6 @@ class Post
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $slug = null;
 
     #[ORM\Column(length: 255)]
     private ?string $thumbnail_url = null;
@@ -73,18 +71,6 @@ class Post
     public function setContent(string $content): self
     {
         $this->content = $content;
-
-        return $this;
-    }
-
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
 
         return $this;
     }

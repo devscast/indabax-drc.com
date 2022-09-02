@@ -67,6 +67,7 @@ class SpeakerController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $speaker->setSlug((new AsciiSlugger())->slug((string) $speaker->getName())->toString());
             $repository->add($speaker, true);
 
             return $this->redirectSeeOther('admin_speaker_index');

@@ -20,14 +20,28 @@ class TalkType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class)
-            ->add('description', TextareaType::class)
-            ->add('schedule_at', DatePickerType::class)
+            ->add('name', TextType::class, [
+                'label' => 'Titre'
+            ])
+            ->add('description', TextareaType::class, [
+                'label' => 'Description'
+            ])
+            ->add('schedule_at', DatePickerType::class, [
+                'label' => 'Date et Heure du talk'
+            ])
             ->add('speaker', EntityType::class, [
+                'attr' => [
+                    'is' => 'app-select-choices',
+                ],
+                'label' => 'Speaker',
                 'class' => Speaker::class,
                 'choice_label' => 'name',
             ])
             ->add('event', EntityType::class, [
+                'attr' => [
+                    'is' => 'app-select-choices',
+                ],
+                'label' => 'Évènement',
                 'class' => Event::class,
                 'choice_label' => 'name',
             ])

@@ -14,6 +14,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 #[ORM\Entity(repositoryClass: SpeakerRepository::class)]
 class Speaker
 {
+    use SlugTrait;
     use TimestampTrait;
 
     #[ORM\Id]
@@ -35,9 +36,6 @@ class Speaker
 
     #[ORM\Column(length: 255)]
     private ?string $avatar_url = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $slug = null;
 
     #[Vich\UploadableField('avatar', 'avatar_url')]
     private ?File $avatar_file = null;
@@ -108,18 +106,6 @@ class Speaker
     public function setAvatarUrl(?string $avatar_url): self
     {
         $this->avatar_url = $avatar_url;
-
-        return $this;
-    }
-
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
 
         return $this;
     }

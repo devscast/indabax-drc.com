@@ -23,13 +23,13 @@ final class MainSidebar extends AbstractSidebar
             ->add(new SidebarHeader('Gestion'))
             ->add(new SidebarLink('admin_post_index', 'Blog', 'file-docs'))
             ->add(new SidebarLink('admin_speaker_index', 'Speakers', 'users'))
-            ->add(new SidebarLink('admin_speaker_index', 'Talks', 'msg-circle'))
-            ->add(new SidebarLink('admin_speaker_index', 'Événement', 'calendar'))
+            ->add(new SidebarLink('admin_talk_index', 'Talks', 'msg-circle'))
+            //->add(new SidebarLink('admin_speaker_index', 'Événement', 'calendar'))
 
             ->add(new SidebarHeader('Paramètres'))
             ->add(new SidebarLink('admin_pricing_index', 'Prix', 'sign-dollar'))
-            ->add(new SidebarLink('admin_speaker_index', 'Administrateur', 'users'))
-            ->add(new SidebarLink('admin_speaker_index', 'Comité', 'users'))
+            //->add(new SidebarLink('admin_speaker_index', 'Administrateur', 'users'))
+            //->add(new SidebarLink('admin_speaker_index', 'Comité', 'users'))
 
             ->setTranslationDomain('messages')
             ->create();

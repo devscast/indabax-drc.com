@@ -1,0 +1,44 @@
+{% extends 'shared/layout/base.html.twig' %}
+{% block title "Talk #{data.name}" %}
+
+{% block header %}
+    {% embed "shared/component/_header.html.twig" %}
+        {% block header_title "Détails du Talk" %}
+        {% block header_action_list %}
+            <li class="btn-group">
+                <a href="{{ path('admin_talk_index') }}" class="btn btn-white btn-dim btn-outline-light">
+                    {{ 'arrow-long-left' | icon }}
+                    <span>tous les talk</span>
+                </a>
+                <a href="{{ path('admin_talk_edit', {id: data.id}) }}" class="btn btn-white btn-dim btn-outline-light">
+                    {{ 'edit' | icon }}
+                    <span>modifier</span>
+                </a>
+                <form method="post" action="{{ path('admin_talk_delete', {id: data.id}) }}" class="d-inline-block" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet élément ?');">
+                    <input type="hidden" name="_token" value="{{ csrf_token("delete#{data.id}") }}">
+                    <button class="btn btn-white btn-dim btn-outline-light btn-delete">
+                        {{ 'delete' | icon }}
+                        <span>supprimer</span>
+                    </button>
+                </form>
+            </li>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+    {% embed "shared/component/card/_detail.html.twig" %}
+        {% import 'shared/component/_macros.html.twig' as component %}
+        {% block detail_card_body %}
+            <div class="nk-block">
+                <div class="profile-ud-list">
+                    {{ component.user_data_item('titre', data.name) }}
+                    {{ component.user_data_item('Description', data.description) }}
+                    {{ component.user_data_link('Date', data.scheduleAt | date) }}
+                    {{ component.user_data_link('Speaker', data.speaker.name) }}
+                    {{ component.user_data_link('Évènement', data.event.name) }}
+                </div>
+            </div>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

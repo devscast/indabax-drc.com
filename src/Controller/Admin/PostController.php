@@ -68,6 +68,7 @@ class PostController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $post->setSlug((new AsciiSlugger())->slug((string) $post->getTitle())->toString());
             $postRepository->add($post, true);
 
             return $this->redirectSeeOther('admin_post_index');
