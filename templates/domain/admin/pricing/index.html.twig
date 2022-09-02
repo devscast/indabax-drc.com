@@ -1,0 +1,16 @@
+{% extends 'shared/layout/base.html.twig' %}
+{% block title "Paramètres de prix" | title %}
+
+{% block header %}
+    {% embed "shared/component/_header.html.twig" %}
+        {% block header_title "Paramètres de prix" %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+    {% embed "shared/component/card/_simple.html.twig" %}
+        {% block simple_card_body %}
+            {% include 'shared/component/_form.html.twig' %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

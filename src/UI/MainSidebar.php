@@ -27,7 +27,7 @@ final class MainSidebar extends AbstractSidebar
             ->add(new SidebarLink('admin_speaker_index', 'Événement', 'calendar'))
 
             ->add(new SidebarHeader('Paramètres'))
-            ->add(new SidebarLink('admin_speaker_index', 'Prix', 'sign-dollar'))
+            ->add(new SidebarLink('admin_pricing_index', 'Prix', 'sign-dollar'))
             ->add(new SidebarLink('admin_speaker_index', 'Administrateur', 'users'))
             ->add(new SidebarLink('admin_speaker_index', 'Comité', 'users'))
 
