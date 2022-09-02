@@ -36,6 +36,9 @@ class Talk
     #[ORM\JoinColumn(nullable: false)]
     private ?Event $event = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $youtube_replay_url = null;
+
     public function __construct()
     {
     }
@@ -101,6 +104,18 @@ class Talk
     public function setEvent(?Event $event): self
     {
         $this->event = $event;
+
+        return $this;
+    }
+
+    public function getYoutubeReplayUrl(): ?string
+    {
+        return $this->youtube_replay_url;
+    }
+
+    public function setYoutubeReplayUrl(?string $youtube_replay_url): self
+    {
+        $this->youtube_replay_url = $youtube_replay_url;
 
         return $this;
     }
