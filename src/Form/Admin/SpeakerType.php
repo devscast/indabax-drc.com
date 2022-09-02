@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Form\Admin;
 
 use App\Entity\Speaker;
@@ -16,20 +18,20 @@ class SpeakerType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Nom complet'
+                'label' => 'Nom complet',
             ])
             ->add('job_title', TextType::class, [
-                'label' => 'Titre'
+                'label' => 'Titre',
             ])
             ->add('organization', TextType::class, [
-                'label' => 'Organisation'
+                'label' => 'Organisation',
             ])
             ->add('link', UrlType::class, [
                 'label' => 'Lien',
-                'required' => false
+                'required' => false,
             ])
             ->add('avatarFile', DropzoneType::class, [
-                'label' => 'Avatar'
+                'label' => 'Avatar',
             ])
         ;
     }

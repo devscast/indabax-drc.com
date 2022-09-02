@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Form\Admin;
 
 use App\Entity\Pricing;
@@ -21,15 +23,15 @@ class PricingType extends AbstractType
             ->add('student', MoneyType::class, [
                 'label' => 'Prix pour étudiants',
                 'required' => false,
-                'currency' => 'USD'
+                'currency' => 'USD',
             ])
             ->add('academic', MoneyType::class, [
                 'label' => 'Prix pour académiques',
-                'currency' => 'USD'
+                'currency' => 'USD',
             ])
             ->add('professional', MoneyType::class, [
                 'label' => 'Prix pour professionnels',
-                'currency' => 'USD'
+                'currency' => 'USD',
             ]);
     }
 

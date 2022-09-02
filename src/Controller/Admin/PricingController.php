@@ -12,10 +12,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route("/admin/pricing")]
+#[Route('/admin/pricing')]
 final class PricingController extends AbstractController
 {
-    #[Route("", name: "admin_pricing_index", methods: ['GET', 'POST'])]
+    #[Route('', name: 'admin_pricing_index', methods: ['GET', 'POST'])]
     public function index(Request $request, PricingRepository $repository): Response
     {
         $data = $repository->findAll();
@@ -25,15 +25,15 @@ final class PricingController extends AbstractController
             ->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->addFlash("success", "les prix ont bien été configurés");
+            $this->addFlash('success', 'les prix ont bien été configurés');
             $repository->add($pricing, true);
-            return $this->redirectToRoute("admin_pricing_index");
+            return $this->redirectToRoute('admin_pricing_index');
         }
 
         return $this->renderForm(
-            view: "domain/admin/pricing/index.html.twig",
+            view: 'domain/admin/pricing/index.html.twig',
             parameters: [
-                'form' => $form
+                'form' => $form,
             ]
         );
     }

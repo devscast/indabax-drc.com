@@ -7,7 +7,6 @@ namespace App\Controller\Admin;
 use App\Controller\AbstractController;
 use App\Entity\Speaker;
 use App\Form\Admin\SpeakerType;
-use App\Repository\PostRepository;
 use App\Repository\SpeakerRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -38,7 +37,7 @@ class SpeakerController extends AbstractController
             ->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $speaker->setSlug((new AsciiSlugger())->slug((string)$speaker->getName())->toString());
+            $speaker->setSlug((new AsciiSlugger())->slug((string) $speaker->getName())->toString());
             $repository->add($speaker, true);
 
             return $this->redirectSeeOther('admin_speaker_index');
@@ -82,7 +81,7 @@ class SpeakerController extends AbstractController
     #[Route('/{id}', name: 'delete', methods: ['POST'])]
     public function delete(Request $request, Speaker $speaker, SpeakerRepository $repository): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $speaker->getId(), (string)$request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $speaker->getId(), (string) $request->request->get('_token'))) {
             $repository->remove($speaker, true);
         }
 

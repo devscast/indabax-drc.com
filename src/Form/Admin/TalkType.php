@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Form\Admin;
 
 use App\Entity\Event;
@@ -23,11 +25,11 @@ class TalkType extends AbstractType
             ->add('schedule_at', DatePickerType::class)
             ->add('speaker', EntityType::class, [
                 'class' => Speaker::class,
-                'choice_label' => 'name'
+                'choice_label' => 'name',
             ])
             ->add('event', EntityType::class, [
                 'class' => Event::class,
-                'choice_label' => 'name'
+                'choice_label' => 'name',
             ])
         ;
     }

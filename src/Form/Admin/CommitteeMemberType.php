@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Form\Admin;
 
 use App\Entity\CommitteeMember;
@@ -15,22 +17,22 @@ class CommitteeMemberType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Nom complet'
+                'label' => 'Nom complet',
             ])
             ->add('job_title', TextType::class, [
-                'label' => 'Titre'
+                'label' => 'Titre',
             ])
             ->add('organization', TextType::class, [
-                'label' => 'Organisation'
+                'label' => 'Organisation',
             ])
             ->add('description', TextType::class, [
-                'label' => 'Description'
+                'label' => 'Description',
             ])
             ->add('role', TextType::class, [
-                'label' => 'Rôle'
+                'label' => 'Rôle',
             ])
             ->add('avatar_file', DropzoneType::class, [
-                'label' => 'Avatar'
+                'label' => 'Avatar',
             ])
         ;
     }
