@@ -41,6 +41,7 @@ class Talk
 
     public function __construct()
     {
+        $this->created_at = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -89,9 +90,9 @@ class Talk
         return $this->schedule_at;
     }
 
-    public function setScheduleAt(\DateTimeImmutable $schedule_at): self
+    public function setScheduleAt(?\DateTimeInterface $schedule_at): self
     {
-        $this->schedule_at = $schedule_at;
+        $this->schedule_at = $this->createDateTimeImmutable($schedule_at);
 
         return $this;
     }

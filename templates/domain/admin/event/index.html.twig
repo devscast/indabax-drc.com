@@ -1,14 +1,14 @@
 {% extends 'shared/layout/base.html.twig' %}
-{% block title 'Talks' %}
+{% block title 'Édition des évènements' %}
 
 {% block header %}
     {% embed "shared/component/_header.html.twig" %}
-        {% block header_title  "Talks" %}
+        {% block header_title  "Édition des évènements" %}
         {% block header_action_list %}
             <li class="btn-group">
-                <a href="{{ path('admin_talk_new') }}" class="btn btn-white btn-dim btn-outline-light">
+                <a href="{{ path('admin_event_new') }}" class="btn btn-white btn-dim btn-outline-light">
                     {{ 'plus' | icon }}
-                    <span>Ajouter un talk</span>
+                    <span>Ajouter une édition</span>
                 </a>
             </li>
         {% endblock %}
@@ -20,10 +20,9 @@
         {% embed "shared/component/card/_list.html.twig" %}
             {% block list_card_table_head %}
                 <th>#</th>
-                <th>Titre</th>
-                <th>Speaker</th>
+                <th>Édition</th>
+                <th>Lieu</th>
                 <th>Date</th>
-                <th>Évènement</th>
                 <th>&nbsp;</th>
             {% endblock %}
             {% block list_card_table_body %}
@@ -31,12 +30,12 @@
                     <tr>
                         <td>{{ row.id }}</td>
                         <td>{{ row.name }}</td>
-                        <td>{{ row.speaker.name }}</td>
-                        <td>{{ row.scheduleAt | date }}</td>
-                        <td>{{ row.event.name }}</td>
+                        <td>{{ row.location }}</td>
+                        <td>{{ row.registrationStartsAt | date }} - {{ row.registrationEndsAt | date }}</td>
                         <td class="tb-odr-action">
                             <div class="tb-odr-btns d-none d-md-inline">
-                                <a href="{{ path('admin_talk_show', {id: row.id}) }}" class="btn btn-sm btn-primary" title="{{ 'global.show' | trans([], 'messages') }}">
+                                <a href="{{ path('admin_event_show', {id: row.id}) }}" class="btn btn-sm btn-primary"
+                                   title="{{ 'global.show' | trans([], 'messages') }}">
                                     {{ 'eye-alt-fill' | icon }}
                                     <span>voir</span>
                                 </a>
@@ -52,9 +51,9 @@
                 <div class="d-flex justify-content-center align-center">
                     <div class="nk-block-content nk-error-ld text-center">
                         <img src="{{ asset('images/contact.svg') }}" alt="aucune données" width="200">
-                        <p class="nk-error-description">Vous n'avez aucun talk</p>
-                        <a href="{{ path('admin_talk_new') }}" class="btn btn-primary">
-                            Ajouter un talk
+                        <p class="nk-error-description">Vous n'avez aucune édition</p>
+                        <a href="{{ path('admin_event_new') }}" class="btn btn-primary">
+                            Ajouter une édition
                         </a>
                     </div>
                 </div>

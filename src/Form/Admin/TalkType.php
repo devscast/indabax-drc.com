@@ -49,7 +49,7 @@ class TalkType extends AbstractType
             ->add('youtube_replay_url', UrlType::class, [
                 'label' => 'Url de la vidéo replay',
                 'required' => false,
-                'help' => 'Si le talk a été filmé veuillez précisez ici le lien de la vidéo youtube (optionnel)'
+                'help' => 'Si le talk a été filmé veuillez précisez ici le lien de la vidéo youtube (optionnel)',
             ])
         ;
     }

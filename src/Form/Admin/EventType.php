@@ -20,35 +20,35 @@ class EventType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Nom',
-                'help' => 'par exemple : Édition 2022 - theme...'
+                'help' => 'par exemple : Édition 2022 - theme...',
             ])
             ->add('event_starts_at', DatePickerType::class, [
-                'label' => 'Date de début'
+                'label' => 'Date de début',
             ])
             ->add('event_ends_at', DatePickerType::class, [
-                'label' => 'Date de fin'
+                'label' => 'Date de fin',
             ])
             ->add('registration_starts_at', DatePickerType::class, [
-                'label' => "Date de début d'inscription"
+                'label' => "Date de début d'inscription",
             ])
             ->add('registration_ends_at', DatePickerType::class, [
-                'label' => "Date de fin d'inscription"
+                'label' => "Date de fin d'inscription",
             ])
             ->add('description', AutoGrowTextareaType::class, [
-                'label' => "Description"
+                'label' => 'Description',
             ])
             ->add('location', TextType::class, [
-                'label' => "Lieu de l'évènement"
+                'label' => "Lieu de l'évènement",
             ])
             ->add('lat', NumberType::class, [
                 'label' => 'latitude',
                 'required' => false,
-                'help' => 'Important pour afficher la carte'
+                'help' => 'Important pour afficher la carte (optionnel)',
             ])
             ->add('lng', NumberType::class, [
                 'label' => 'longitude',
                 'required' => false,
-                'help' => 'Important pour afficher la carte'
+                'help' => 'Important pour afficher la carte (optionnel)',
             ]);
     }
 

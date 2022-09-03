@@ -21,10 +21,10 @@ final class MainSidebar extends AbstractSidebar
     {
         return $builder
             ->add(new SidebarHeader('Gestion'))
-            ->add(new SidebarLink('admin_post_index', 'Blog', 'file-docs'))
+            ->add(new SidebarLink('admin_event_index', 'Éditions', 'calendar'))
             ->add(new SidebarLink('admin_speaker_index', 'Speakers', 'users'))
             ->add(new SidebarLink('admin_talk_index', 'Talks', 'msg-circle'))
-            //->add(new SidebarLink('admin_speaker_index', 'Événement', 'calendar'))
+            ->add(new SidebarLink('admin_post_index', 'Articles', 'file-docs'))
 
             ->add(new SidebarHeader('Paramètres'))
             ->add(new SidebarLink('admin_pricing_index', 'Prix', 'sign-dollar'))

@@ -1,9 +1,9 @@
 {% extends 'shared/layout/base.html.twig' %}
-{% block title 'Blog' %}
+{% block title "Articles d'actualité" %}
 
 {% block header %}
     {% embed "shared/component/_header.html.twig" %}
-        {% block header_title  "Gestion d'articles" %}
+        {% block header_title  "Articles d'actualité" %}
         {% block header_action_list %}
             <li class="btn-group">
                 <a href="{{ path('admin_post_new') }}" class="btn btn-white btn-dim btn-outline-light">

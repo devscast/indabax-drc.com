@@ -53,6 +53,7 @@ class Event
     public function __construct()
     {
         $this->talks = new ArrayCollection();
+        $this->created_at = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -77,9 +78,9 @@ class Event
         return $this->event_starts_at;
     }
 
-    public function setEventStartsAt(\DateTimeImmutable $event_starts_at): self
+    public function setEventStartsAt(?\DateTimeInterface $event_starts_at): self
     {
-        $this->event_starts_at = $event_starts_at;
+        $this->event_starts_at = $this->createDateTimeImmutable($event_starts_at);
 
         return $this;
     }
@@ -89,9 +90,9 @@ class Event
         return $this->event_ends_at;
     }
 
-    public function setEventEndsAt(\DateTimeImmutable $event_ends_at): self
+    public function setEventEndsAt(?\DateTimeInterface $event_ends_at): self
     {
-        $this->event_ends_at = $event_ends_at;
+        $this->event_ends_at = $this->createDateTimeImmutable($event_ends_at);
 
         return $this;
     }
@@ -101,9 +102,9 @@ class Event
         return $this->registration_starts_at;
     }
 
-    public function setRegistrationStartsAt(\DateTimeImmutable $registration_starts_at): self
+    public function setRegistrationStartsAt(?\DateTimeInterface $registration_starts_at): self
     {
-        $this->registration_starts_at = $registration_starts_at;
+        $this->registration_starts_at = $this->createDateTimeImmutable($registration_starts_at);
 
         return $this;
     }
@@ -113,9 +114,9 @@ class Event
         return $this->registration_ends_at;
     }
 
-    public function setRegistrationEndsAt(\DateTimeImmutable $registration_ends_at): self
+    public function setRegistrationEndsAt(?\DateTimeInterface $registration_ends_at): self
     {
-        $this->registration_ends_at = $registration_ends_at;
+        $this->registration_ends_at = $this->createDateTimeImmutable($registration_ends_at);
 
         return $this;
     }
