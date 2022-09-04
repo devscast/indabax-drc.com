@@ -17,7 +17,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/admin/user', name: 'admin_user_')]
-class UserController extends AbstractController
+final class UserController extends AbstractController
 {
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(Request $request, UserRepository $repository, PaginatorInterface $paginator): Response

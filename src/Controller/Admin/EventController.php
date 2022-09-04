@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/admin/event', name: 'admin_event_')]
-class EventController extends AbstractController
+final class EventController extends AbstractController
 {
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(Request $request, EventRepository $repository, PaginatorInterface $paginator): Response

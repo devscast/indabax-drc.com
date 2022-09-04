@@ -7,7 +7,7 @@ namespace App\Controller\Admin;
 use App\Controller\AbstractController;
 use App\Entity\Post;
 use App\Entity\User;
-use App\Form\Admin\PostForm;
+use App\Form\Admin\PostType;
 use App\Repository\PostRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 
 #[Route('/admin/post', name: 'admin_post_')]
-class PostController extends AbstractController
+final class PostController extends AbstractController
 {
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(Request $request, PostRepository $postRepository, PaginatorInterface $paginator): Response
@@ -36,7 +36,7 @@ class PostController extends AbstractController
         /** @var User $user */
         $user = $this->getUser();
         $post = new Post();
-        $form = $this->createForm(PostForm::class, $post);
+        $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -64,7 +64,7 @@ class PostController extends AbstractController
     #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Post $post, PostRepository $postRepository): Response
     {
-        $form = $this->createForm(PostForm::class, $post);
+        $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

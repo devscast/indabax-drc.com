@@ -14,11 +14,11 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\UX\Dropzone\Form\DropzoneType;
 
 /**
- * class PostForm.
+ * class PostType.
  *
  * @author bernard-ng <bernard@devscast.tech>
  */
-class PostForm extends AbstractType
+class PostType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {

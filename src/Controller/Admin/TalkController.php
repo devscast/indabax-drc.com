@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 
 #[Route('/admin/talk', name: 'admin_talk_')]
-class TalkController extends AbstractController
+final class TalkController extends AbstractController
 {
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(Request $request, TalkRepository $repository, PaginatorInterface $paginator): Response
