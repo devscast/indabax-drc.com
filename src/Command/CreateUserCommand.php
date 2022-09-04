@@ -39,6 +39,7 @@ final class CreateUserCommand extends Command
         $this
             ->setDescription('Creates users and stores them in the database')
             ->setHelp($this->getCommandHelp())
+            ->addArgument('name', InputArgument::OPTIONAL, 'The name of the new user')
             ->addArgument('email', InputArgument::OPTIONAL, 'The email of the new user')
             ->addArgument('password', InputArgument::OPTIONAL, 'The plain password of the new user');
     }
@@ -52,7 +53,8 @@ final class CreateUserCommand extends Command
     {
         if (
             $input->getArgument('password') !== null &&
-            $input->getArgument('email') !== null
+            $input->getArgument('email') !== null &&
+            $input->getArgument('name') !== null
         ) {
             return;
         }
@@ -66,6 +68,15 @@ final class CreateUserCommand extends Command
             '',
             "Now we'll ask you for the value of all the missing command arguments.",
         ]);
+
+        /** @var string|null $name */
+        $name = $input->getArgument('name');
+        if ($name !== null) {
+            $this->io->text(' > <info>Name</info>: ' . $name);
+        } else {
+            $name = $this->io->ask('Name');
+            $input->setArgument('name', $name);
+        }
 
         /** @var string|null $email */
         $email = $input->getArgument('email');
@@ -105,8 +116,10 @@ final class CreateUserCommand extends Command
 
         // create the user and hash its password
         $user = new User();
-        $user->setEmail($email);
-        $user->setRoles(['ROLE_ADMIN']);
+        $user->setName((string) $input->getArgument('name'))
+            ->setEmail($email)
+            ->setRoles(['ROLE_ADMIN'])
+        ;
 
         // See https://symfony.com/doc/current/security.html#c-encoding-passwords
         $hashedPassword = $this->passwordHasher->hashPassword($user, $plainPassword);
