@@ -1,0 +1,31 @@
+<div class="card-aside card-aside-left user-aside toggle-slide toggle-slide-left toggle-break-lg toggle-screen-lg" data-toggle-body="true" data-content="userAside" data-toggle-screen="lg" data-toggle-overlay="true">
+    <div class="card-inner-group">
+        <div class="card-inner">
+            <div class="user-card">
+                <div class="user-avatar bg-primary">
+                    {{ 'user' | icon }}
+                </div>
+                <div class="user-info">
+                    <span class="lead-text">{{ app.user.name }}</span>
+                    <span class="sub-text">{{ app.user.email }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="card-inner p-0">
+            <ul class="link-list-menu">
+                <li class="{{ active_class('/admin/profile/setting/password', 'active', '', true) }}">
+                    <a href="{{ path('admin_setting_index') }}">
+                        <em class="icon ni ni-user-fill-c"></em>
+                        <span>Informations personnelles</span>
+                    </a>
+                </li>
+                <li class="{{ active_class('/admin/profile/setting', 'active', '', true) }}">
+                    <a href="{{ path('admin_setting_password') }}">
+                        <em class="icon ni ni-lock-alt-fill"></em>
+                        <span>Informations d'authentification</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

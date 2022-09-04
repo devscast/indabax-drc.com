@@ -55,7 +55,7 @@ trait TimestampTrait
         return $this;
     }
 
-    public function createDateTimeImmutable(\DateTimeInterface|string|null $date): ?\DateTimeInterface
+    public function createDateTimeImmutable(\DateTimeInterface|string|null $date): ?\DateTimeImmutable
     {
         if (is_string($date)) {
             $date = \DateTimeImmutable::createFromFormat('Y-m-d H:i', $date);
@@ -63,6 +63,6 @@ trait TimestampTrait
         } elseif ($date instanceof \DateTimeInterface) {
             return \DateTimeImmutable::createFromInterface($date);
         }
-        return $date;
+        return null;
     }
 }
