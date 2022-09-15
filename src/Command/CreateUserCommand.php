@@ -116,7 +116,7 @@ final class CreateUserCommand extends Command
 
         // create the user and hash its password
         $user = new User();
-        $user->setName((string) $input->getArgument('name'))
+        $user->setName(strval($input->getArgument('name')))
             ->setEmail($email)
             ->setRoles(['ROLE_ADMIN'])
         ;

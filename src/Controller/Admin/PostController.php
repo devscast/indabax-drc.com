@@ -21,7 +21,7 @@ final class PostController extends AbstractController
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(Request $request, PostRepository $postRepository, PaginatorInterface $paginator): Response
     {
-        return $this->render('domain/admin/post/index.html.twig', [
+        return $this->render('backend/domain/admin/post/index.html.twig', [
             'data' => $paginator->paginate(
                 target: $postRepository->findAll(),
                 page: $request->query->getInt('page', 1),
@@ -47,7 +47,7 @@ final class PostController extends AbstractController
             return $this->redirectSeeOther('admin_post_index');
         }
 
-        return $this->renderForm('domain/admin/post/new.html.twig', [
+        return $this->renderForm('backend/domain/admin/post/new.html.twig', [
             'data' => $post,
             'form' => $form,
         ]);
@@ -56,7 +56,7 @@ final class PostController extends AbstractController
     #[Route('/{id}', name: 'show', methods: ['GET'])]
     public function show(Post $post): Response
     {
-        return $this->render('domain/admin/post/show.html.twig', [
+        return $this->render('backend/domain/admin/post/show.html.twig', [
             'data' => $post,
         ]);
     }
@@ -74,7 +74,7 @@ final class PostController extends AbstractController
             return $this->redirectSeeOther('admin_post_index');
         }
 
-        return $this->renderForm('domain/admin/post/edit.html.twig', [
+        return $this->renderForm('backend/domain/admin/post/edit.html.twig', [
             'data' => $post,
             'form' => $form,
         ]);

@@ -26,6 +26,7 @@ final class ContactEventListener
         $message = (new Email())
             ->from(new Address('noreply@indabax-drc.org', 'IndabaX DRC'))
             ->to(new Address('contact@indabax-drc.org', 'IndabaX DRC'))
+            ->addCc(new Address((string) $_ENV['APP_EMAIL'], 'IndabaX DRC'))
             ->replyTo(new Address((string) $data->email, (string) $data->name))
             ->subject((string) $data->subject)
             ->text((string) $data->message);

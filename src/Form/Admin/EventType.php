@@ -10,6 +10,7 @@ use App\Form\Type\DatePickerType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -40,15 +41,15 @@ class EventType extends AbstractType
             ->add('location', TextType::class, [
                 'label' => "Lieu de l'évènement",
             ])
-            ->add('lat', NumberType::class, [
-                'label' => 'latitude',
+            ->add('google_form_link', UrlType::class, [
+                'label' => 'Lien formulaire Google',
                 'required' => false,
-                'help' => 'Important pour afficher la carte (optionnel)',
+                'help' => "Lien à utiliser pour l'inscription",
             ])
-            ->add('lng', NumberType::class, [
-                'label' => 'longitude',
+            ->add('google_map_link', NumberType::class, [
+                'label' => 'Lien google map',
                 'required' => false,
-                'help' => 'Important pour afficher la carte (optionnel)',
+                'help' => 'Lien de l\'iframe de la carte google (optionnel)',
             ]);
     }
 

@@ -9,6 +9,7 @@ Encore
     .setPublicPath('/assets')
 
     .addEntry('app', './assets/app.js')
+    .addEntry('frontend', './assets/frontend.js')
     .enableStimulusBridge('./assets/js/controllers.json')
     .splitEntryChunks()
     .enableSingleRuntimeChunk()
@@ -30,6 +31,11 @@ Encore
     })
 
     .enableSassLoader()
+    .enablePostCssLoader((config) => {
+        config.postcssOptions = {
+            path: './postcss.config.js'
+        };
+    })
     .enableIntegrityHashes(Encore.isProduction())
 ;
 

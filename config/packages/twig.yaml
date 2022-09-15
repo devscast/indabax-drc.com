@@ -3,7 +3,7 @@ twig:
     date:
         format: d F Y
         interval_format: '%%d days'
-    form_themes: ['shared/layout/form_theme.html.twig']
+    form_themes: ['backend/shared/layout/form_theme.html.twig']
 
 when@test:
     twig:

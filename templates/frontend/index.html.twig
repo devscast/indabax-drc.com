@@ -1,0 +1,176 @@
+{% apply spaceless %}
+<!DOCTYPE html>
+<html lang="{{ app.request.locale | default('fr') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+    <meta name="language" content="{{ app.request.locale | default('fr') }}">
+    <meta name="author" content="devscast.tech, contact@devscast.tech">
+    <meta name="robots" content="index">
+    <meta name="robots" content="follow">
+    <link rel="icon" type="image/png" href="{{ asset('/images/indabax.png') }}" />
+    <meta name="description" content="Un Deep Learning Indaba𝕏 est un Indaba ou une conférence organisée localement qui permet de s'assurer que les connaissances et les capacités en matière d'apprentissage automatique sont plus largement diffusées sur le continent africain."/>
+    <meta name="keywords" content="Congo, DRC, RDC, Deep Learning, Indabax, apprentissage automatique">
+    <meta property="og:title" content="Indabax DRC | Indabax-drc.org">
+    <meta name="apple-mobile-web-app-title" content="Indabax DRC | Indabax-drc.org">
+    <meta name="twitter:title" content="Indabax DRC | Indabax-drc.org">
+
+    <title>Indabax DRC | Indabax-drc.org</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+
+    {{ encore_entry_link_tags('frontend') }}
+    {{ encore_entry_script_tags('frontend') }}
+</head>
+<body class="bg-black text-white">
+{% if event %}
+    {% include 'frontend/component/_header.html.twig' %}
+    <section class="relative pt-28 overflow-hidden bg-black before:absolute before:inset-0 before:z-[8] before:h-2/3 before:mt-auto before:bg-gradient-to-t before:from-black">
+        <img class="absolute inset-0 w-full object-cover object-bottom blur-lg h-full" src="{{ asset('images/cover.webp') }}" alt="">
+        <div class="h-full relative z-[8]">
+            <div class="max-w-7xl mx-auto px-8 md:px-12 lg:px-6">
+                <div class="pt-40 lg:pt-28">
+                    <h1 class="text-5xl font-bold text-center font-['AbrilFatface'] text-white sm:text-6xl lg:text-7xl">Deep Learning<br> Indaba𝕏 DR Congo</h1>
+                </div>
+                <div class="mt-12">
+                    <div class="flex justify-center items-center gap-4 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+                        </svg>
+                        <span class="text-xl">{{ event.eventStartsAt | date('M d Y')}} - {{ event.eventEndsAt | date('M d Y') }}</span>
+                    </div>
+
+                    <div class="mt-4 flex justify-center items-center gap-4 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-xl">{{ event.location }}</span>
+                    </div>
+
+                    <div class="mt-12 flex flex-wrap justify-center gap-6">
+                        <a href="{{ event.googleFormLInk | default('#') }}" rel="noopener" target="_blank" class="relative h-16 px-8 group flex sm:h-20 w-full items-center justify-center sm:px-12 bg-white overflow-hidden before:absolute before:inset-0 before:scale-x-0 before:origin-right before:bg-primary before:hover:origin-left before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
+                            <span class="relative text-2xl font-semibold text-dark group-hover:text-white">S'enregistrer</span>
+                        </a>
+                        <a href="#" class="relative h-16 px-8 group flex sm:h-20 w-full items-center justify-center sm:px-12 border-2 border-gray-400 overflow-hidden before:absolute before:inset-0 before:scale-x-0 before:origin-right before:bg-white before:hover:origin-left before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
+                            <span class="relative text-2xl font-semibold text-white group-hover:text-dark">En savoir plus</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mt-16">
+                    <h2 class="text-xl text-center text-gray-300">
+                        Nos sponsors
+                    </h2>
+                    <div class="m-auto mt-12 xl:px-12">
+                        <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 flex-wrap justify-center items-center gap-6">
+                            {% for s in sponsor %}
+                                <img src="{{ s.logoUrl }}" title="{{ s.name }}" class="contrast-100 h-12 w-auto" loading="lazy" alt="logo {{ s.name }}"/>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="mt-56 z-10">
+        <div class="relative max-w-7xl mx-auto px-8 md:px-12 lg:px-6">
+            <div class="mb-16 mx-auto text-center lg:w-3/5">
+                <h2 class="mb-8 text-4xl font-bold text-white md:text-4xl lg:text-6xl">
+                    Conférence sur le Machine Learning et l'IA
+                </h2>
+                <p class="text-gray-300 text-lg">
+                    Un Deep Learning Indaba𝕏 est un "Indaba" ou une conférence organisée localement qui permet de s'assurer que les connaissances et les capacités en matière d'apprentissage automatique sont plus largement diffusées sur le continent africain.
+                </p>
+            </div>
+            <div class="lg:w-2/3 mx-auto">
+                <div class="relative md:text-lg py-16 grid sm:grid-cols-2 gap-24 before:absolute before:inset-0 before:w-0 sm:before:w-0.5 before:h-full before:m-auto before:bg-gray-800">
+                    <div class="sm:col-start-2">
+                        <h3 class="text-3xl">Recherche</h3>
+                        <p class="mt-4 text-gray-300">échanger des connaissances scientifiques entre chercheurs</p>
+                    </div>
+                    <div class="sm:col-start-1 sm:text-right">
+                        <h3 class="text-3xl">Applications de l'IA</h3>
+                        <p class="mt-4 text-gray-300">Présenter les applications de pointe des partenaires industriels.</p>
+                    </div>
+                    <div class="sm:col-start-2 row-start-3">
+                        <h3 class="text-3xl">Communauté</h3>
+                        <p class="mt-4 text-gray-300">Se connecter avec d'autres chercheurs et praticiens</p>
+                    </div>
+                    <div class="sm:col-start-1 row-start-4 sm:text-right">
+                        <h3 class="text-3xl">Tutoriels</h3>
+                        <p class="mt-4 text-gray-300">Fournir une introduction pratique à l'apprentissage automatique pour les débutants.</p>
+                    </div>
+                    <div class="sm:col-start-2 row-start-5">
+                        <h3 class="text-3xl">Hackathon</h3>
+                        <p class="mt-4 text-gray-300">Mettez la main à la pâte et apprenez des meilleurs</p>
+                    </div>
+                    <div class="sm:col-start-1 row-start-6 sm:text-right">
+                        <h3 class="text-3xl">Session d'affiches</h3>
+                        <p class="mt-4 text-gray-300">présenter votre travail et obtenir des commentaires d'experts</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="mt-56 relative z-10">
+        <div class="relative">
+            <div aria-hidden="true" class="absolute top-56 inset-x-32 inset-0 grid grid-cols-2 opacity-60">
+                <div class="blur-[106px] h-72 bg-gradient-to-br from-primary to-purple-400"></div>
+                <div class="blur-[106px] h-56 bg-gradient-to-r from-indigo-400 to-blue-700"></div>
+            </div>
+            <div class="relative max-w-7xl mx-auto px-8 md:px-12 lg:px-6">
+                <div class="mb-16 mx-auto text-center md:w-2/3 lg:w-1/2">
+                    <h2 class="mb-8 text-4xl font-bold text-white md:text-4xl lg:text-6xl">
+                        Les orateurs
+                    </h2>
+
+                    {% if speakers %}
+                        <p class="text-gray-300 text-lg">{{ event.description }}</p>
+                    {% else %}
+                        <p class="text-gray-300 text-lg">Les orateurs seront annoncés ultérieurement</p>
+                    {% endif %}
+                </div>
+                {% if speakers %}
+                    <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+                        {% for s in speakers %}
+                            {% include 'frontend/component/_speaker_card.html.twig' with {user: s} %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <section class="my-56 relative z-10">
+        <div class="relative">
+            <div aria-hidden="true" class="absolute top-56 inset-x-32 inset-0 grid grid-cols-2 opacity-60">
+                <div class="blur-[106px] h-72 bg-gradient-to-br from-primary to-purple-400"></div>
+                <div class="blur-[106px] h-56 bg-gradient-to-r from-indigo-400 to-blue-700"></div>
+            </div>
+            <div class="relative max-w-7xl mx-auto px-8 md:px-12 lg:px-6">
+                <div class="mb-16 mx-auto text-center md:w-2/3 lg:w-1/2">
+                    <h2 class="mb-8 text-4xl font-bold text-white md:text-4xl lg:text-6xl">
+                        Comité d'organisation
+                    </h2>
+                </div>
+                <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+                    {% for c in committee %}
+                        {% include 'frontend/component/_user_card.html.twig' with {user: c} %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include 'frontend/component/_footer.html.twig' %}
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Website",
+            "url": "https://indabax-drc.org"
+        }
+    </script>
+{% endif %}
+</body>
+</html>
+{% endapply %}

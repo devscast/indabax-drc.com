@@ -45,10 +45,10 @@ class Event
     private ?string $location = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $lat = null;
+    private ?string $google_form_link = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $lng = null;
+    private ?string $google_map_link = null;
 
     public function __construct()
     {
@@ -175,26 +175,26 @@ class Event
         return $this;
     }
 
-    public function getLat(): ?string
+    public function getGoogleFormLink(): ?string
     {
-        return $this->lat;
+        return $this->google_form_link;
     }
 
-    public function setLat(?string $lat): self
+    public function setGoogleFormLink(?string $google_form_link): self
     {
-        $this->lat = $lat;
+        $this->google_form_link = $google_form_link;
 
         return $this;
     }
 
-    public function getLng(): ?string
+    public function getGoogleMapLink(): ?string
     {
-        return $this->lng;
+        return $this->google_map_link;
     }
 
-    public function setLng(?string $lng): self
+    public function setGoogleMapLink(?string $google_map_link): self
     {
-        $this->lng = $lng;
+        $this->google_map_link = $google_map_link;
 
         return $this;
     }

@@ -20,7 +20,7 @@ final class TalkController extends AbstractController
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(Request $request, TalkRepository $repository, PaginatorInterface $paginator): Response
     {
-        return $this->render('domain/admin/talk/index.html.twig', [
+        return $this->render('backend/domain/admin/talk/index.html.twig', [
             'data' => $paginator->paginate(
                 target: $repository->findAll(),
                 page: $request->query->getInt('page', 1),
@@ -44,7 +44,7 @@ final class TalkController extends AbstractController
         }
 
         return $this->renderForm(
-            view: 'domain/admin/talk/new.html.twig',
+            view: 'backend/domain/admin/talk/new.html.twig',
             parameters: [
                 'data' => $talk,
                 'form' => $form,
@@ -55,7 +55,7 @@ final class TalkController extends AbstractController
     #[Route('/{id}', name: 'show', methods: ['GET'])]
     public function show(talk $talk): Response
     {
-        return $this->render('domain/admin/talk/show.html.twig', [
+        return $this->render('backend/domain/admin/talk/show.html.twig', [
             'data' => $talk,
         ]);
     }
@@ -73,7 +73,7 @@ final class TalkController extends AbstractController
             return $this->redirectSeeOther('admin_talk_index');
         }
 
-        return $this->renderForm('domain/admin/talk/edit.html.twig', [
+        return $this->renderForm('backend/domain/admin/talk/edit.html.twig', [
             'data' => $talk,
             'form' => $form,
         ]);

@@ -1,0 +1,112 @@
+{% apply spaceless %}
+<!DOCTYPE html>
+<html lang="{{ app.request.locale | default('fr') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+    <meta name="language" content="{{ app.request.locale | default('fr') }}">
+    <meta name="author" content="devscast.tech, contact@devscast.tech">
+    <meta name="robots" content="index">
+    <meta name="robots" content="follow">
+    <link rel="icon" type="image/png" href="{{ asset('/images/indabax.png') }}" />
+    <meta name="description" content="Un Deep Learning Indaba𝕏 est un Indaba ou une conférence organisée localement qui permet de s'assurer que les connaissances et les capacités en matière d'apprentissage automatique sont plus largement diffusées sur le continent africain."/>
+    <meta name="keywords" content="Congo, DRC, RDC, Deep Learning, Indabax, apprentissage automatique">
+    <meta property="og:title" content="Indabax DRC | Indabax-drc.org">
+    <meta name="apple-mobile-web-app-title" content="Indabax DRC | Indabax-drc.org">
+    <meta name="twitter:title" content="Indabax DRC | Indabax-drc.org">
+
+    <title>Contact | Indabax-drc.org</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+
+    {{ encore_entry_link_tags('frontend') }}
+    {{ encore_entry_script_tags('frontend') }}
+</head>
+<body class="bg-black text-white">
+{% include 'frontend/component/_header.html.twig' %}
+<section class="relative py-56 relative z-10">
+    <div class="relative">
+        <div class="relative max-w-7xl mx-auto px-8 md:px-12 lg:px-6">
+            <div class="mb-16 mx-auto text-center lg:w-3/5">
+                <h2 class="mb-8 text-4xl font-bold text-white md:text-4xl lg:text-6xl">
+                    Prenez contact avec nous
+                </h2>
+            </div>
+            <div class="lg:w-1/2 mx-auto">
+                {{ form_start(form) }}
+                    <div class="mb-12 grid sm:grid-cols-2 gap-6 sm:gap-y-12">
+                        <div class="col-span-2 sm:col-span-1">
+                            <div class="relative before:absolute before:inset-x-0 before:bottom-0 before:h-0.5 before:scale-x-0 before:origin-left before:bg-secondary  before:duration-500 focus-within:invalid:bg-primary focus-within:before:scale-x-100">
+                                {{
+                                    form_widget(form.name, {
+                                        error_item_class: 'mt-2 text-sm text-red-500',
+                                        widget_errors_class: 'border-red-500',
+                                        attr: {
+                                            class: 'py-4 border-b border-gray-600 w-full bg-transparent placeholder-gray-300 outline-none ',
+                                            placeholder: 'Votre nom complet...'
+                                        }}
+                                    )
+                                }}
+                            </div>
+                            {{ form_errors(form.name) }}
+                        </div>
+                        <div class="col-span-2 sm:col-span-1">
+                            <div class="relative before:absolute before:inset-x-0 before:bottom-0 before:h-0.5 before:scale-x-0 before:origin-left before:bg-secondary  before:duration-500 focus-within:invalid:bg-primary focus-within:before:scale-x-100">
+                                {{
+                                    form_widget(form.email, {
+                                        error_item_class: 'mt-2 text-sm text-red-500',
+                                        widget_errors_class: 'border-red-500',
+                                        attr: {
+                                            class: 'py-4 border-b border-gray-600 w-full bg-transparent placeholder-gray-300 outline-none ',
+                                            placeholder: 'Votre adresse email...'
+                                        }}
+                                    )
+                                }}
+                            </div>
+                            {{ form_errors(form.email) }}
+                        </div>
+                        <div class="col-span-2">
+                            <div class="col-span-2 sm:col-span-1 relative before:absolute before:inset-x-0 before:bottom-0 before:h-0.5 before:scale-x-0 before:origin-left before:bg-secondary  before:duration-500 focus-within:invalid:bg-primary invalid:bg-primary focus-within:before:scale-x-100">
+                                {{
+                                    form_widget(form.subject, {
+                                        error_item_class: 'mt-2 text-sm text-red-500',
+                                        widget_errors_class: 'border-red-500',
+                                        attr: {
+                                            class: 'py-4 border-b border-gray-600 w-full bg-transparent placeholder-gray-300 outline-none ',
+                                            placeholder: 'au sujet de...'
+                                        }}
+                                    )
+                                }}
+                            </div>
+                            {{ form_errors(form.subject) }}
+                        </div>
+                        <div class="col-span-2">
+                            <div class="flex items-end relative before:absolute before:inset-x-0 before:bottom-0 before:h-0.5 before:scale-x-0 before:origin-left before:bg-secondary  before:duration-500 focus-within:invalid:bg-primary focus-within:before:scale-x-100">
+                                {{
+                                    form_widget(form.message, {
+                                        error_item_class: 'mt-2 text-sm text-red-500',
+                                        widget_errors_class: 'border-red-500',
+                                        attr: {
+                                            class: "py-4 border-b border-gray-600 w-full bg-transparent placeholder-gray-300 outline-none ",
+                                            cols: 30,
+                                            rows: 4,
+                                            placeholder: 'Votre message...'
+                                        }}
+                                    )
+                                }}
+                            </div>
+                            {{ form_errors(form.message) }}
+                        </div>
+                    </div>
+                    <button type="submit" class="relative ml-auto h-14 px-8 group flex w-full items-center justify-center bg-white overflow-hidden before:absolute before:inset-0 before:scale-x-0 before:origin-right before:bg-primary before:hover:origin-left before:transition before:duration-500 hover:before:scale-105 active:duration-75 sm:w-max">
+                        <span class="relative text-lg font-semibold text-dark group-hover:text-white">Envoyer le message</span>
+                    </button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+{% endapply %}

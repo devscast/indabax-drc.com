@@ -22,7 +22,7 @@ final class UserController extends AbstractController
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(Request $request, UserRepository $repository, PaginatorInterface $paginator): Response
     {
-        return $this->render('domain/admin/user/index.html.twig', [
+        return $this->render('backend/domain/admin/user/index.html.twig', [
             'data' => $paginator->paginate(
                 target: $repository->findAll(),
                 page: $request->query->getInt('page', 1),
@@ -52,7 +52,7 @@ final class UserController extends AbstractController
         }
 
         return $this->renderForm(
-            view: 'domain/admin/user/new.html.twig',
+            view: 'backend/domain/admin/user/new.html.twig',
             parameters: [
                 'data' => $user,
                 'form' => $form,

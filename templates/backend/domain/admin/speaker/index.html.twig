@@ -1,0 +1,47 @@
+{% extends 'templates/shared/layout/base.html.twig' %}
+{% block title 'Speakers' %}
+
+{% block header %}
+    {% embed 'shared/component/_header.html.twig' %}
+        {% block header_title 'Speakers' %}
+        {% block header_action_list %}
+            <li class="btn-group">
+                <a href="{{ path('admin_post_new') }}" class="btn btn-white btn-dim btn-outline-light">
+                    {{ 'plus' | icon }}
+                    <span>Ajouter un speaker</span>
+                </a>
+            </li>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+    {% if data | length > 0 %}
+        <div class="row g-gs">
+            {% for user in data %}
+                <div class="col-sm-6 col-lg-4 col-xxl-3">
+                    {% include 'templates/backend/component/_user_card.html.twig' with {user: user} %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="mt-5 d-flex justify-content-center">
+            {% if data is defined %}
+                {{ knp_pagination_render(data) }}
+            {% endif %}
+        </div>
+    {% else %}
+        <div class="card card-stretch">
+            <div class="card-body">
+                <div class="d-flex justify-content-center align-center">
+                    <div class="nk-block-content nk-error-ld text-center">
+                        <img src="{{ asset('images/contact.svg') }}" alt="aucune données" width="200">
+                        <p class="nk-error-description">Vous n'avez aucun speaker</p>
+                        <a href="{{ path('admin_speaker_new') }}" class="btn btn-primary">
+                            Ajouter un speaker
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

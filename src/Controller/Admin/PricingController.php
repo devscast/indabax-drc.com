@@ -31,7 +31,7 @@ final class PricingController extends AbstractController
         }
 
         return $this->renderForm(
-            view: 'domain/admin/pricing/index.html.twig',
+            view: 'backend/domain/admin/pricing/index.html.twig',
             parameters: [
                 'form' => $form,
             ]

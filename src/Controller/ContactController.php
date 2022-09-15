@@ -36,7 +36,7 @@ final class ContactController extends AbstractController
         }
 
         return $this->renderForm(
-            view: 'domain/contact.html.twig',
+            view: 'frontend/contact.html.twig',
             parameters: [
                 'form' => $form,
             ]

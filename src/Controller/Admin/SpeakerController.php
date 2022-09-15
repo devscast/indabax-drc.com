@@ -20,7 +20,7 @@ final class SpeakerController extends AbstractController
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(Request $request, SpeakerRepository $repository, PaginatorInterface $paginator): Response
     {
-        return $this->render('domain/admin/speaker/index.html.twig', [
+        return $this->render('backend/domain/admin/speaker/index.html.twig', [
             'data' => $paginator->paginate(
                 target: $repository->findAll(),
                 page: $request->query->getInt('page', 1),
@@ -44,7 +44,7 @@ final class SpeakerController extends AbstractController
         }
 
         return $this->renderForm(
-            view: 'domain/admin/speaker/new.html.twig',
+            view: 'backend/domain/admin/speaker/new.html.twig',
             parameters: [
                 'data' => $speaker,
                 'form' => $form,
@@ -55,7 +55,7 @@ final class SpeakerController extends AbstractController
     #[Route('/{id}', name: 'show', methods: ['GET'])]
     public function show(Speaker $speaker): Response
     {
-        return $this->render('domain/admin/speaker/show.html.twig', [
+        return $this->render('backend/domain/admin/speaker/show.html.twig', [
             'data' => $speaker,
         ]);
     }
@@ -73,7 +73,7 @@ final class SpeakerController extends AbstractController
             return $this->redirectSeeOther('admin_speaker_index');
         }
 
-        return $this->renderForm('domain/admin/speaker/edit.html.twig', [
+        return $this->renderForm('backend/domain/admin/speaker/edit.html.twig', [
             'data' => $speaker,
             'form' => $form,
         ]);

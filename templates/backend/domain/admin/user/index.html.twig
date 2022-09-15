@@ -1,0 +1,67 @@
+{% extends 'templates/shared/layout/base.html.twig' %}
+{% block title 'Administrateurs' %}
+
+{% block header %}
+    {% embed "shared/component/_header.html.twig" %}
+        {% block header_title  "Administrateurs" %}
+        {% block header_action_list %}
+            <li class="btn-group">
+                <a href="{{ path('admin_user_new') }}" class="btn btn-white btn-dim btn-outline-light">
+                    {{ 'plus' | icon }}
+                    <span>Ajouter un administrateur</span>
+                </a>
+            </li>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+    {% if data | length > 0 %}
+        {% embed "shared/component/card/_list.html.twig" %}
+            {% block list_card_table_head %}
+                <th>#</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Admin depuis</th>
+                <th>&nbsp;</th>
+            {% endblock %}
+            {% block list_card_table_body %}
+                {% for row in data %}
+                    <tr>
+                        <td>{{ row.id }}</td>
+                        <td>{{ row.name }}</td>
+                        <td>{{ row.email }}</td>
+                        <td>{{ row.createdAt | date }}</td>
+                        <td class="tb-odr-action">
+                            {% if row != app.user %}
+                                <div class="tb-odr-btns d-none d-md-inline">
+                                    <form method="post" action="{{ path('admin_user_delete', {id: row.id}) }}" class="d-inline-block" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet élément ?');">
+                                        <input type="hidden" name="_token" value="{{ csrf_token("delete#{row.id}") }}">
+                                        <button class="btn btn-danger btn-dim btn-outline-light btn-delete">
+                                            {{ 'delete' | icon }}
+                                            <span>supprimer</span>
+                                        </button>
+                                    </form>
+                                </div>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endblock %}
+        {% endembed %}
+    {% else %}
+        <div class="card card-stretch">
+            <div class="card-body">
+                <div class="d-flex justify-content-center align-center">
+                    <div class="nk-block-content nk-error-ld text-center">
+                        <img src="{{ asset('images/contact.svg') }}" alt="aucune données" width="200">
+                        <p class="nk-error-description">Vous n'avez aucun administrateur</p>
+                        <a href="{{ path('admin_user_new') }}" class="btn btn-primary">
+                            Ajouter un administrateur
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

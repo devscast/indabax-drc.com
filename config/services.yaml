@@ -4,6 +4,12 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+    data.committee: '%kernel.project_dir%/data/committee.yaml'
+    data.sponsor: '%kernel.project_dir%/data/sponsor.yaml'
+
+    # sitemap generator
+    router.request_context.host: indabax-drc.org
+    router.request_context.scheme: https
 
 services:
     # default configuration for services in *this* file

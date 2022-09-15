@@ -44,7 +44,7 @@ final class LoginController extends AbstractController
         $form = $this->createForm(LoginForm::class, $command);
 
         return $this->renderForm(
-            view: 'domain/authentication/login.html.twig',
+            view: 'backend/domain/authentication/login.html.twig',
             parameters: [
                 'form' => $form,
             ],

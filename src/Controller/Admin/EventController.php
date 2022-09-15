@@ -19,7 +19,7 @@ final class EventController extends AbstractController
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(Request $request, EventRepository $repository, PaginatorInterface $paginator): Response
     {
-        return $this->render('domain/admin/event/index.html.twig', [
+        return $this->render('backend/domain/admin/event/index.html.twig', [
             'data' => $paginator->paginate(
                 target: $repository->findAll(),
                 page: $request->query->getInt('page', 1),
@@ -42,7 +42,7 @@ final class EventController extends AbstractController
         }
 
         return $this->renderForm(
-            view: 'domain/admin/event/new.html.twig',
+            view: 'backend/domain/admin/event/new.html.twig',
             parameters: [
                 'data' => $event,
                 'form' => $form,
@@ -53,7 +53,7 @@ final class EventController extends AbstractController
     #[Route('/{id}', name: 'show', methods: ['GET'])]
     public function show(event $event): Response
     {
-        return $this->render('domain/admin/event/show.html.twig', [
+        return $this->render('backend/domain/admin/event/show.html.twig', [
             'data' => $event,
         ]);
     }
@@ -70,7 +70,7 @@ final class EventController extends AbstractController
             return $this->redirectSeeOther('admin_event_index');
         }
 
-        return $this->renderForm('domain/admin/event/edit.html.twig', [
+        return $this->renderForm('backend/domain/admin/event/edit.html.twig', [
             'data' => $event,
             'form' => $form,
         ]);

@@ -35,7 +35,7 @@ final class SettingController extends AbstractController
         }
 
         return $this->renderForm(
-            view: 'domain/admin/setting/index.html.twig',
+            view: 'backend/domain/admin/setting/index.html.twig',
             parameters: [
                 'form' => $form,
             ]
@@ -68,7 +68,7 @@ final class SettingController extends AbstractController
         }
 
         return $this->renderForm(
-            view: 'domain/admin/setting/password.html.twig',
+            view: 'backend/domain/admin/setting/password.html.twig',
             parameters: [
                 'form' => $form,
             ]
