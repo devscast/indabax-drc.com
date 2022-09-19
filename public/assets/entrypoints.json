@@ -1,0 +1,41 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/assets/runtime.f845e13a.js",
+        "/assets/812.f3386083.js",
+        "/assets/183.3e060ee3.js",
+        "/assets/490.6bc51d34.js",
+        "/assets/859.b574b008.js",
+        "/assets/app.aed9ee71.js"
+      ],
+      "css": [
+        "/assets/490.be562b06.css",
+        "/assets/app.dc49be73.css"
+      ]
+    },
+    "frontend": {
+      "js": [
+        "/assets/runtime.f845e13a.js",
+        "/assets/812.f3386083.js",
+        "/assets/859.b574b008.js",
+        "/assets/frontend.172d5f23.js"
+      ],
+      "css": [
+        "/assets/frontend.1d113b22.css"
+      ]
+    }
+  },
+  "integrity": {
+    "/assets/runtime.f845e13a.js": "sha384-xadmfznqw45IfZvdGsHLD9OqsvaupX17MDmHJYvXDteOH61LVHRK9dIvAHFc/uy0",
+    "/assets/812.f3386083.js": "sha384-VfBhHErs2DtoCSpZjrSQ53+qsF5AdI+dwgJWc+VhPjUXwi8TL9LAIh3l+IVGpgFh",
+    "/assets/183.3e060ee3.js": "sha384-09XzP+adCUVX+PJv9OO0dVqrHofYOs86IXo6DzWBEMpSmsY3DlfuCsYk3L+z+Ygw",
+    "/assets/490.6bc51d34.js": "sha384-jG2VZQSmG+nRIpfe4F/YKgmGQ2mTapCBQzY455ecKquDW46O0+EioaeQzKjRliY2",
+    "/assets/859.b574b008.js": "sha384-xViGaEnOX3jrfcUK3MSA6AD2JwXTfwR5f4vlxFODxDi52vww8Ge0mqYIPmqhiE/w",
+    "/assets/app.aed9ee71.js": "sha384-ZvmeENTQvWQMXMsMciSjmNdhh34+kPAd/MBu4tRB+y6c/w9w88Izh/Rnci01hCak",
+    "/assets/490.be562b06.css": "sha384-O8tIYiQ/goD4W7Aofc1aIY7jeBwaxeqW8lCMfm9HoZFUbaMibNhcSQGwU5zldvWF",
+    "/assets/app.dc49be73.css": "sha384-r8TvVRrgGKN+SIy9yAU3U01HVehdQ4mwVOnkKmQDsvX/kJZOYfswexjznLrFtu1U",
+    "/assets/frontend.172d5f23.js": "sha384-GOOLSpIcLcL+miJMyfq+4KeiAj9FpQgherObvmLc98hjzXVIObc76jJ5imeLTvf3",
+    "/assets/frontend.1d113b22.css": "sha384-2aLok+O0os5y7YGxt0SKmRNGxjPBwAEr90QDcS4ObNsg5qGOEKJLuGqeRZj3GqUo"
+  }
+}

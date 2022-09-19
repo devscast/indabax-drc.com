@@ -8,8 +8,6 @@
 /var/
 /vendor/
 /.idea/
-/public/assets/
-/public/uploads/
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###
