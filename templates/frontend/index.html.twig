@@ -52,7 +52,7 @@
                         <a href="{{ event.googleFormLInk | default('#') }}" rel="noopener" target="_blank" class="relative h-16 px-8 group flex sm:h-20 w-full items-center justify-center sm:px-12 bg-white overflow-hidden before:absolute before:inset-0 before:scale-x-0 before:origin-right before:bg-primary before:hover:origin-left before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
                             <span class="relative text-2xl font-semibold text-dark group-hover:text-white">S'enregistrer</span>
                         </a>
-                        <a href="#" class="relative h-16 px-8 group flex sm:h-20 w-full items-center justify-center sm:px-12 border-2 border-gray-400 overflow-hidden before:absolute before:inset-0 before:scale-x-0 before:origin-right before:bg-white before:hover:origin-left before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
+                        <a href="#about" class="relative h-16 px-8 group flex sm:h-20 w-full items-center justify-center sm:px-12 border-2 border-gray-400 overflow-hidden before:absolute before:inset-0 before:scale-x-0 before:origin-right before:bg-white before:hover:origin-left before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
                             <span class="relative text-2xl font-semibold text-white group-hover:text-dark">En savoir plus</span>
                         </a>
                     </div>
@@ -63,7 +63,7 @@
                         Nos sponsors
                     </h2>
                     <div class="m-auto mt-12 xl:px-12">
-                        <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 flex-wrap justify-center items-center gap-6">
+                        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 flex-wrap justify-center items-center gap-6">
                             {% for s in sponsor %}
                                 <img src="{{ s.logoUrl }}" title="{{ s.name }}" class="contrast-100 h-12 w-auto" loading="lazy" alt="logo {{ s.name }}"/>
                             {% endfor %}
@@ -73,10 +73,11 @@
             </div>
         </div>
     </section>
-    <section class="mt-56 z-10">
+
+    <section class="mt-48 z-10">
         <div class="relative max-w-7xl mx-auto px-8 md:px-12 lg:px-6">
             <div class="mb-16 mx-auto text-center lg:w-3/5">
-                <h2 class="mb-8 text-4xl font-bold text-white md:text-4xl lg:text-6xl">
+                <h2 id="about" class="mb-8 text-4xl font-bold text-white md:text-4xl lg:text-6xl">
                     Conférence sur le Machine Learning et l'IA
                 </h2>
                 <p class="text-gray-300 text-lg">
@@ -113,21 +114,20 @@
             </div>
         </div>
     </section>
-    <section class="mt-56 relative z-10">
+
+    <section class="mt-48 relative z-10">
         <div class="relative">
             <div aria-hidden="true" class="absolute top-56 inset-x-32 inset-0 grid grid-cols-2 opacity-60">
                 <div class="blur-[106px] h-72 bg-gradient-to-br from-primary to-purple-400"></div>
                 <div class="blur-[106px] h-56 bg-gradient-to-r from-indigo-400 to-blue-700"></div>
             </div>
-            <div class="relative max-w-7xl mx-auto px-8 md:px-12 lg:px-6">
+            <div class="relative max-w-6xl mx-auto px-8 md:px-12 lg:px-6">
                 <div class="mb-16 mx-auto text-center md:w-2/3 lg:w-1/2">
                     <h2 class="mb-8 text-4xl font-bold text-white md:text-4xl lg:text-6xl">
                         Les orateurs
                     </h2>
 
-                    {% if speakers %}
-                        <p class="text-gray-300 text-lg">{{ event.description }}</p>
-                    {% else %}
+                    {% if not speakers %}
                         <p class="text-gray-300 text-lg">Les orateurs seront annoncés ultérieurement</p>
                     {% endif %}
                 </div>
@@ -141,21 +141,117 @@
             </div>
         </div>
     </section>
-    <section class="my-56 relative z-10">
-        <div class="relative">
-            <div aria-hidden="true" class="absolute top-56 inset-x-32 inset-0 grid grid-cols-2 opacity-60">
-                <div class="blur-[106px] h-72 bg-gradient-to-br from-primary to-purple-400"></div>
-                <div class="blur-[106px] h-56 bg-gradient-to-r from-indigo-400 to-blue-700"></div>
+
+    <section class="mt-20 relative z-10">
+        <div class="container m-auto px-6 py-20 md:px-12 lg:px-20">
+            <div class="m-auto text-center lg:w-7/12">
+                <h2 class="mb-8 text-4xl font-bold text-white md:text-4xl lg:text-6xl">Tout le monde est invité</h2>
+                <p class="text-gray-300 text-lg">
+                    L'objectif de la conférence est de fournir une introduction pratique à l'apprentissage automatique pour les débutants,
+                    d'échanger des connaissances scientifiques entre chercheurs et de présenter des applications de pointe de partenaires industriels.
+                </p>
             </div>
-            <div class="relative max-w-7xl mx-auto px-8 md:px-12 lg:px-6">
-                <div class="mb-16 mx-auto text-center md:w-2/3 lg:w-1/2">
-                    <h2 class="mb-8 text-4xl font-bold text-white md:text-4xl lg:text-6xl">
-                        Comité d'organisation
-                    </h2>
+            <div class="mt-12 grid items-center gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div class="relative bg-neutral-900">
+                    <div class="relative p-8">
+                        <img class="w-20 mx-auto" src="https://indabax.co.za/images/icons/icon-1.png" alt="">
+                        <div class="mt-12 space-y-6 mb-20">
+                            <h3 class="text-2xl text-white font-semibold text-center">Étudiants</h3>
+                            <div class="relative flex justify-around">
+                                <div class="flex">
+                                    <span class="-ml-2 mt-1 text-xl text-secondary font-bold">$</span>
+                                    <span class="text-6xl text-white font-bold leading-0">{{ pricing.student }}</span>
+                                </div>
+                            </div>
+                            {#<ul role="list" class="w-max hidden space-y-4 pb-6 m-auto text-gray-300">
+                                <li class="space-x-2">
+                                    <span class="text-cyan-500 font-semibold">&check;</span>
+                                    <span>First premium advantage</span>
+                                </li>
+                                <li class="space-x-2">
+                                    <span class="text-cyan-500 font-semibold">&check;</span>
+                                    <span>Second premium advantage</span>
+                                </li>
+                                <li class="space-x-2">
+                                    <span class="text-cyan-500 font-semibold">&check;</span>
+                                    <span>Third advantage</span>
+                                </li>
+                            </ul>#}
+                        </div>
+                        <a href="{{ event.googleFormLink }}" class="relative group flex h-12 w-full items-center justify-center px-6 overflow-hidden border border-gray-500 hover:border-transparent before:absolute before:inset-0 before:scale-x-0 before:origin-right before:bg-primary before:hover:origin-left before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95">
+                            <span class="relative text-base font-semibold text-white delay-100">S'enregistrer</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="relative bg-neutral-800 scale-105">
+                    <div class="relative p-8">
+                        <img class="w-16 mx-auto" src="https://indabax.co.za/images/icons/icon-3.png" alt="">
+                        <div class="mt-12 space-y-6 mb-20">
+                            <h3 class="text-2xl text-white font-semibold text-center">Académiques</h3>
+                            <div class="relative flex justify-around">
+                                <div class="flex">
+                                    <span class="-ml-2 mt-1 text-xl text-secondary font-bold">$</span>
+                                    <span class="text-6xl text-white font-bold leading-0">{{ pricing.academic }}</span>
+                                </div>
+                            </div>
+                            <ul role="list" class="w-max hidden space-y-4 pb-6 m-auto text-gray-300">
+                                <li class="space-x-2">
+                                    <span class="text-cyan-500 font-semibold">&check;</span>
+                                    <span>First premium advantage</span>
+                                </li>
+                                <li class="space-x-2">
+                                    <span class="text-cyan-500 font-semibold">&check;</span>
+                                    <span>Second premium advantage</span>
+                                </li>
+                                <li class="space-x-2">
+                                    <span class="text-cyan-500 font-semibold">&check;</span>
+                                    <span>Third advantage</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="{{ event.googleFormLink }}" class="relative group flex h-12 w-full items-center justify-center px-6 bg-white overflow-hidden before:absolute before:inset-0 before:scale-x-0 before:origin-right before:bg-primary before:hover:origin-left before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95">
+                            <span class="relative text-base font-semibold text-dark group-hover:text-white delay-100">S'enregistrer</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="relative bg-neutral-900">
+                    <div class="relative p-8">
+                        <img class="w-20 mx-auto" src="https://indabax.co.za/images/icons/icon-2.png" alt="">
+                        <div class="mt-12 space-y-6 mb-20">
+                            <h3 class="text-2xl text-white font-semibold text-center">Professionnels</h3>
+                            <div class="relative flex justify-around">
+                                <div class="flex">
+                                    <span class="-ml-2 mt-1 text-xl text-secondary font-bold">$</span>
+                                    <span class="text-6xl text-white font-bold leading-0">{{ pricing.professional }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{{ event.googleFormLink }}" class="relative group flex h-12 w-full items-center justify-center px-6 bg-white overflow-hidden before:absolute before:inset-0 before:scale-x-0 before:origin-right before:bg-primary before:hover:origin-left before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95">
+                            <span class="relative text-base font-semibold text-dark group-hover:text-white delay-100">s'enregistrer</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="my-48 relative z-10">
+        <div class="relative">
+            <div class="m-auto text-center lg:w-7/12">
+                <h2 class="mb-16 text-4xl font-bold text-white md:text-4xl lg:text-6xl">
+                    Commité d'organisation
+                </h2>
+            </div>
+            <div class="relative max-w-6xl mx-auto px-10 md:px-12 lg:px-12">
+                <div class="grid gap-10 md:grid-cols-6 sm:grid-cols-2 lg:grid-cols-6">
                     {% for c in committee %}
-                        {% include 'frontend/component/_user_card.html.twig' with {user: c} %}
+                        <div class="space-y-4 text-center">
+                            <img class="w-32 h-32 mx-auto object-cover rounded-full md:w-20 md:h-20 lg:w-32 lg:h-32" src="{{ c.avatarUrl }}" alt="woman" loading="lazy" width="640" height="805">
+                            <div>
+                                <h4 class="text-xl">{{ c.name }}</h4>
+                                <span class="block text-sm text-gray-400">{{ c.role }}</span>
+                            </div>
+                        </div>
                     {% endfor %}
                 </div>
             </div>

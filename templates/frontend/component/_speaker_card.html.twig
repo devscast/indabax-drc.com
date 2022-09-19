@@ -1,7 +1,7 @@
 <div class="group relative space-y-6   hover:-transparent overflow-hidden">
     <img
             class="mx-auto h-[26rem] w-full grayscale object-cover object-top ransition duration-500 group-hover:scale-105 group-hover:grayscale-0"
-            src="{{ vich_uploader_asset(user, 'avatar_file') }}"
+            src="{{ user.avatarUrl }}"
             alt="speaker"
             loading="lazy"
             width="640"
@@ -15,8 +15,7 @@
     <div class="absolute bottom-0 inset-x-0 h-max mt-auto px-8 py-6 bg-white translate-y-[6.5rem] transition duration-300 ease-in-out group-hover:translate-y-0">
         <div>
             <h4 class="text-xl font-semibold text-gray-800">{{ user.name }}</h4>
-            <span class="block text-sm text-gray-600">{{ user.jobTitle }}</span>
+            <span class="block text-sm text-gray-600">{{ user.organization }}</span>
         </div>
-        <p class="mt-7 text-gray-600">{{ user.organization }}</p>
     </div>
 </div>
