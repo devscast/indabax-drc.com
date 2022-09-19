@@ -1,8 +1,8 @@
-{% extends 'templates/shared/layout/base.html.twig' %}
+{% extends 'backend/shared/layout/base.html.twig' %}
 {% block title 'Speakers' %}
 
 {% block header %}
-    {% embed 'shared/component/_header.html.twig' %}
+    {% embed 'backend/shared/component/_header.html.twig' %}
         {% block header_title 'Speakers' %}
         {% block header_action_list %}
             <li class="btn-group">
@@ -20,7 +20,7 @@
         <div class="row g-gs">
             {% for user in data %}
                 <div class="col-sm-6 col-lg-4 col-xxl-3">
-                    {% include 'templates/backend/component/_user_card.html.twig' with {user: user} %}
+                    {% include 'backend/component/_user_card.html.twig' with {user: user} %}
                 </div>
             {% endfor %}
         </div>

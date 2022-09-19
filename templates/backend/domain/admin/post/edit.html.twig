@@ -1,8 +1,8 @@
-{% extends 'templates/shared/layout/base.html.twig' %}
+{% extends 'backend/shared/layout/base.html.twig' %}
 {% block title "Editer un article" | title %}
 
 {% block header %}
-    {% embed "shared/component/_header.html.twig" %}
+    {% embed "backend/shared/component/_header.html.twig" %}
         {% block header_title "Editer un article" %}
         {% block header_action_list %}
             <li>
@@ -16,9 +16,9 @@
 {% endblock %}
 
 {% block content %}
-    {% embed "shared/component/card/_simple.html.twig" %}
+    {% embed "backend/shared/component/card/_simple.html.twig" %}
         {% block simple_card_body %}
-            {% include 'templates/shared/component/_form.html.twig' %}
+            {% include 'backend/shared/component/_form.html.twig' %}
         {% endblock %}
     {% endembed %}
 {% endblock %}

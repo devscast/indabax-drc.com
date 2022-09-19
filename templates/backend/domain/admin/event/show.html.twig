@@ -1,8 +1,8 @@
-{% extends 'templates/shared/layout/base.html.twig' %}
+{% extends 'backend/shared/layout/base.html.twig' %}
 {% block title "Édition #{data.name}" %}
 
 {% block header %}
-    {% embed "shared/component/_header.html.twig" %}
+    {% embed "backend/shared/component/_header.html.twig" %}
         {% block header_title "Détails de l'édition" %}
         {% block header_action_list %}
             <li class="btn-group">
@@ -27,8 +27,8 @@
 {% endblock %}
 
 {% block content %}
-    {% embed "shared/component/card/_detail.html.twig" %}
-        {% import 'shared/component/_macros.html.twig' as component %}
+    {% embed "backend/shared/component/card/_detail.html.twig" %}
+        {% import 'backend/shared/component/_macros.html.twig' as component %}
         {% block detail_card_body %}
             <div class="nk-block">
                 <div class="profile-ud-list">

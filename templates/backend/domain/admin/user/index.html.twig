@@ -1,8 +1,8 @@
-{% extends 'templates/shared/layout/base.html.twig' %}
+{% extends 'backend/shared/layout/base.html.twig' %}
 {% block title 'Administrateurs' %}
 
 {% block header %}
-    {% embed "shared/component/_header.html.twig" %}
+    {% embed "backend/shared/component/_header.html.twig" %}
         {% block header_title  "Administrateurs" %}
         {% block header_action_list %}
             <li class="btn-group">
@@ -17,7 +17,7 @@
 
 {% block content %}
     {% if data | length > 0 %}
-        {% embed "shared/component/card/_list.html.twig" %}
+        {% embed "backend/shared/component/card/_list.html.twig" %}
             {% block list_card_table_head %}
                 <th>#</th>
                 <th>Nom</th>

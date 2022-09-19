@@ -8,6 +8,6 @@ knp_paginator:
     filter_field_name: filterField # filter field query parameter name
     filter_value_name: filterValue # filter value query parameter name
   template:
-    pagination: 'shared/layout/pagination/pagination.html.twig'
-    sortable: 'shared/layout/pagination/sorting.html.twig'
-    filtration: 'shared/layout/pagination/filter.html.twig'
+    pagination: 'backend/shared/layout/pagination/pagination.html.twig'
+    sortable: 'backend/shared/layout/pagination/sorting.html.twig'
+    filtration: 'backend/shared/layout/pagination/filter.html.twig'

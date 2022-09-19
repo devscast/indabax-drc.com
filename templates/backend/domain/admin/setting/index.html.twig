@@ -1,4 +1,4 @@
-{% extends 'templates/shared/layout/base.html.twig' %}
+{% extends 'backend/shared/layout/base.html.twig' %}
 {% block title 'Mettre à jour vos informations personnelles' %}
 
 {% block content %}
@@ -19,13 +19,13 @@
                     <div class="card border border-light">
                         <div class="card-inner-group">
                             <div class="card-body">
-                                {% include 'templates/shared/component/_form.html.twig' %}
+                                {% include 'backend/shared/component/_form.html.twig' %}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {% include 'templates/backend/domain/admin/setting/_sidebar.html.twig' %}
+            {% include 'backend/domain/admin/setting/_sidebar.html.twig' %}
         </div>
     </div>
 {% endblock %}

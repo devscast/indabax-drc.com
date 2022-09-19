@@ -1,8 +1,8 @@
-{% extends 'templates/shared/layout/base.html.twig' %}
+{% extends 'backend/shared/layout/base.html.twig' %}
 {% block title "Détails de l'article" %}
 
 {% block header %}
-    {% embed "shared/component/_header.html.twig" %}
+    {% embed "backend/shared/component/_header.html.twig" %}
         {% block header_title %}
             {{ 'posts' | trans | title }} / <strong class="text-primary small">#{{ data.id }}</strong>
         {% endblock %}
@@ -33,14 +33,14 @@
 {% endblock %}
 
 {% block content %}
-    {% embed 'shared/component/card/_simple.html.twig' %}
+    {% embed 'backend/shared/component/card/_simple.html.twig' %}
         {% block simple_card_title 'couverture' %}
         {% block simple_card_body %}
             <img width="50%" alt="{{ data.title }}" src="{{ vich_uploader_asset(data, 'thumbnail_file') }}">
         {% endblock %}
     {% endembed %}
-    {% embed "shared/component/card/_detail.html.twig" %}
-        {% import 'shared/component/_macros.html.twig' as component %}
+    {% embed "backend/shared/component/card/_detail.html.twig" %}
+        {% import 'backend/shared/component/_macros.html.twig' as component %}
         {% block detail_card_body %}
             <div class="nk-block">
                 <div class="nk-block-head">
@@ -54,7 +54,7 @@
             </div>
         {% endblock %}
     {% endembed %}
-    {% embed "shared/component/card/_simple.html.twig" %}
+    {% embed "backend/shared/component/card/_simple.html.twig" %}
         {% block simple_card_title "content" | trans %}
         {% block simple_card_body %}
             {% apply markdown_to_html %}
