@@ -11,11 +11,13 @@
     <link rel="icon" type="image/png" href="{{ asset('/images/indabax.png') }}" />
     <meta name="description" content="Un Deep Learning Indaba𝕏 est un Indaba ou une conférence organisée localement qui permet de s'assurer que les connaissances et les capacités en matière d'apprentissage automatique sont plus largement diffusées sur le continent africain."/>
     <meta name="keywords" content="Congo, DRC, RDC, Deep Learning, Indabax, apprentissage automatique">
-    <meta property="og:title" content="Indabax DRC | Indabax-drc.org">
-    <meta name="apple-mobile-web-app-title" content="Indabax DRC | Indabax-drc.org">
-    <meta name="twitter:title" content="Indabax DRC | Indabax-drc.org">
+    <meta property="og:title" content="Indabax DRC | Indabax-drc.com">
+    <meta property="og:image" content="{{ asset('/images/indabax.png') }}">
+    <meta property="og:description" content="Un Deep Learning Indaba𝕏 est un Indaba ou une conférence organisée localement qui permet de s'assurer que les connaissances et les capacités en matière d'apprentissage automatique sont plus largement diffusées sur le continent africain. ">
+    <meta name="apple-mobile-web-app-title" content="Indabax DRC | Indabax-drc.com">
+    <meta name="twitter:title" content="Indabax DRC | Indabax-drc.com">
 
-    <title>Indabax DRC | Indabax-drc.org</title>
+    <title>Indabax DRC | Indabax-drc.com</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
@@ -58,14 +60,14 @@
                     </div>
                 </div>
 
-                <div class="mt-16">
+                <div id="sponsors" class="mt-16">
                     <h2 class="text-xl text-center text-gray-300">
                         Nos sponsors
                     </h2>
                     <div class="m-auto mt-12 xl:px-12">
-                        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 flex-wrap justify-center items-center gap-6">
+                        <div class="grid grid-cols-4 flex-wrap justify-center items-center gap-6">
                             {% for s in sponsor %}
-                                <img src="{{ s.logoUrl }}" title="{{ s.name }}" class="contrast-100 h-12 w-auto" loading="lazy" alt="logo {{ s.name }}"/>
+                                <img src="{{ s.logoUrl }}" title="{{ s.name }}" class="contrast-100 h-12 w-auto mx-auto" loading="lazy" alt="logo {{ s.name }}"/>
                             {% endfor %}
                         </div>
                     </div>
@@ -74,7 +76,7 @@
         </div>
     </section>
 
-    <section class="mt-48 z-10">
+    <section class="pt-28 z-10">
         <div class="relative max-w-7xl mx-auto px-8 md:px-12 lg:px-6">
             <div class="mb-16 mx-auto text-center lg:w-3/5">
                 <h2 id="about" class="mb-8 text-4xl font-bold text-white md:text-4xl lg:text-6xl">
@@ -115,7 +117,7 @@
         </div>
     </section>
 
-    <section class="mt-48 relative z-10">
+    <section id="orateurs" class="pt-28 relative z-10">
         <div class="relative">
             <div aria-hidden="true" class="absolute top-56 inset-x-32 inset-0 grid grid-cols-2 opacity-60">
                 <div class="blur-[106px] h-72 bg-gradient-to-br from-primary to-purple-400"></div>
@@ -132,7 +134,7 @@
                     {% endif %}
                 </div>
                 {% if speakers %}
-                    <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
                         {% for s in speakers %}
                             {% include 'frontend/component/_speaker_card.html.twig' with {user: s} %}
                         {% endfor %}
@@ -142,7 +144,7 @@
         </div>
     </section>
 
-    <section class="mt-20 relative z-10">
+    <section class="pt-28 relative z-10">
         <div class="container m-auto px-6 py-20 md:px-12 lg:px-20">
             <div class="m-auto text-center lg:w-7/12">
                 <h2 class="mb-8 text-4xl font-bold text-white md:text-4xl lg:text-6xl">Tout le monde est invité</h2>
@@ -235,7 +237,7 @@
         </div>
     </section>
 
-    <section class="my-48 relative z-10">
+    <section id="organisateurs" class="my-48 relative z-10">
         <div class="relative">
             <div class="m-auto text-center lg:w-7/12">
                 <h2 class="mb-16 text-4xl font-bold text-white md:text-4xl lg:text-6xl">
