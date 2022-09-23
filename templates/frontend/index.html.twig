@@ -66,8 +66,8 @@
                     </h2>
                     <div class="m-auto mt-12 xl:px-12">
                         <div class="grid grid-cols-4 flex-wrap justify-center items-center gap-6">
-                            {% for s in sponsor %}
-                                <img src="{{ s.logoUrl }}" title="{{ s.name }}" class="contrast-100 h-12 w-auto mx-auto" loading="lazy" alt="logo {{ s.name }}"/>
+                            {% for s in sponsors %}
+                                <img src="{{ vich_uploader_asset(s, 'image_file') }}" title="{{ s.name }}" class="contrast-100 h-12 w-auto mx-auto" loading="lazy" alt="logo {{ s.name }}"/>
                             {% endfor %}
                         </div>
                     </div>
@@ -246,12 +246,12 @@
             </div>
             <div class="relative max-w-6xl mx-auto px-10 md:px-12 lg:px-12">
                 <div class="grid gap-10 md:grid-cols-6 sm:grid-cols-2 lg:grid-cols-6">
-                    {% for c in committee %}
+                    {% for organizer in organizers %}
                         <div class="space-y-4 text-center">
-                            <img class="w-32 h-32 mx-auto object-cover rounded-full md:w-20 md:h-20 lg:w-32 lg:h-32" src="{{ c.avatarUrl }}" alt="woman" loading="lazy" width="640" height="805">
+                            <img class="w-32 h-32 mx-auto object-cover rounded-full md:w-20 md:h-20 lg:w-32 lg:h-32" src="{{ vich_uploader_asset(organizer, 'image_file') }}" alt="woman" loading="lazy" width="640" height="805">
                             <div>
-                                <h4 class="text-xl">{{ c.name }}</h4>
-                                <span class="block text-sm text-gray-400">{{ c.role }}</span>
+                                <h4 class="text-xl">{{ organizer.name }}</h4>
+                                <span class="block text-sm text-gray-400">{{ organizer.role }}</span>
                             </div>
                         </div>
                     {% endfor %}

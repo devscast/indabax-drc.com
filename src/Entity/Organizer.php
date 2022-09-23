@@ -1,19 +1,16 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Entity;
 
-use App\Repository\SpeakerRepository;
+use App\Repository\OrganizerRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[Vich\Uploadable]
-#[ORM\Entity(repositoryClass: SpeakerRepository::class)]
-class Speaker
+#[ORM\Entity(repositoryClass: OrganizerRepository::class)]
+class Organizer
 {
-    use SlugTrait;
     use TimestampTrait;
     use ImageTrait;
 
@@ -26,19 +23,19 @@ class Speaker
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $job_title = null;
+    private ?string $role = null;
 
     #[ORM\Column(length: 255)]
     private ?string $organization = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $link = null;
-
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
-    #[Vich\UploadableField('speakers', 'image')]
+    #[Vich\UploadableField('organizers', 'image')]
     private ?File $image_file = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $link = null;
 
     public function __construct()
     {
@@ -62,14 +59,14 @@ class Speaker
         return $this;
     }
 
-    public function getJobTitle(): ?string
+    public function getRole(): ?string
     {
-        return $this->job_title;
+        return $this->role;
     }
 
-    public function setJobTitle(string $job_title): self
+    public function setRole(string $role): self
     {
-        $this->job_title = $job_title;
+        $this->role = $role;
 
         return $this;
     }
@@ -86,6 +83,18 @@ class Speaker
         return $this;
     }
 
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
     public function getLink(): ?string
     {
         return $this->link;
@@ -96,15 +105,5 @@ class Speaker
         $this->link = $link;
 
         return $this;
-    }
-
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(?string $image): void
-    {
-        $this->image = $image;
     }
 }

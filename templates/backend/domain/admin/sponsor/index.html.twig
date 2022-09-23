@@ -1,14 +1,14 @@
 {% extends 'backend/shared/layout/base.html.twig' %}
-{% block title 'Speakers' %}
+{% block title 'Sponsors' %}
 
 {% block header %}
     {% embed 'backend/shared/component/_header.html.twig' %}
-        {% block header_title 'Speakers' %}
+        {% block header_title 'Sponsors' %}
         {% block header_action_list %}
             <li class="btn-group">
-                <a href="{{ path('admin_speaker_new') }}" class="btn btn-white btn-dim btn-outline-light">
+                <a href="{{ path('admin_sponsor_new') }}" class="btn btn-white btn-dim btn-outline-light">
                     {{ 'plus' | icon }}
-                    <span>Ajouter un speaker</span>
+                    <span>Ajouter un Sponsor</span>
                 </a>
             </li>
         {% endblock %}
@@ -35,9 +35,9 @@
                 <div class="d-flex justify-content-center align-center">
                     <div class="nk-block-content nk-error-ld text-center">
                         <img src="{{ asset('images/contact.svg') }}" alt="aucune données" width="200">
-                        <p class="nk-error-description">Vous n'avez aucun speaker</p>
-                        <a href="{{ path('admin_speaker_new') }}" class="btn btn-primary">
-                            Ajouter un speaker
+                        <p class="nk-error-description">Vous n'avez aucun sponsor</p>
+                        <a href="{{ path('admin_sponsor_new') }}" class="btn btn-primary">
+                            Ajouter un sponsor
                         </a>
                     </div>
                 </div>

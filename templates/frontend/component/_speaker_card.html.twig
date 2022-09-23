@@ -1,7 +1,7 @@
 <div class="group relative space-y-6 hover:-transparent overflow-hidden">
     <img
             class="mx-auto h-[16rem] w-full grayscale object-cover object-top ransition duration-500 group-hover:scale-105 group-hover:grayscale-0"
-            src="{{ user.avatarUrl }}"
+            src="{{ vich_uploader_asset(user, 'image_file') }}"
             alt="speaker {{ user.name }}"
             loading="lazy"
             width="640"

@@ -1,14 +1,14 @@
 {% extends 'backend/shared/layout/base.html.twig' %}
-{% block title "Ajouter un article" | title %}
+{% block title "Editer un organisateur" | title %}
 
 {% block header %}
     {% embed "backend/shared/component/_header.html.twig" %}
-        {% block header_title "Ajouter un article" %}
+        {% block header_title "Editer un organisateur" %}
         {% block header_action_list %}
             <li>
-                <a href="{{ path('admin_post_index') }}" class="btn btn-white btn-dim btn-outline-light">
+                <a href="{{ path('admin_organizer_index') }}" class="btn btn-white btn-dim btn-outline-light">
                     {{ 'arrow-long-left' | icon }}
-                    <span>tous les articles</span>
+                    <span>tous les organisateurs</span>
                 </a>
             </li>
         {% endblock %}

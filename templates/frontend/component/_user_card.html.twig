@@ -1,7 +1,7 @@
 <div class="group relative space-y-6   hover:-transparent overflow-hidden">
     <img
             class="mx-auto h-[26rem] w-full grayscale object-cover object-top ransition duration-500 group-hover:scale-105 group-hover:grayscale-0"
-            src="{{ user.avatarUrl }}"
+            src="{{ vich_uploader_asset(user, 'image_file') }}"
             alt="speaker"
             loading="lazy"
             width="640"
@@ -17,6 +17,6 @@
             <h4 class="text-xl font-semibold text-gray-800">{{ user.name }}</h4>
             <span class="block text-sm text-gray-600">{{ user.role }}</span>
         </div>
-        <p class="mt-7 text-gray-600">{{ user.affiliation }}</p>
+        <p class="mt-7 text-gray-600">{{ user.organization }}</p>
     </div>
 </div>

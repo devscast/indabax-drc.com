@@ -31,7 +31,7 @@
                         <td>{{ row.id }}</td>
                         <td>{{ row.name }}</td>
                         <td>{{ row.location }}</td>
-                        <td>{{ row.registrationStartsAt | date }} - {{ row.registrationEndsAt | date }}</td>
+                        <td>{{ row.eventStartsAt | date }} - {{ row.eventEndsAt | date }}</td>
                         <td class="tb-odr-action">
                             <div class="tb-odr-btns d-none d-md-inline">
                                 <a href="{{ path('admin_event_show', {id: row.id}) }}" class="btn btn-sm btn-primary"

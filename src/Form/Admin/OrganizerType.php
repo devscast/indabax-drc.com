@@ -1,10 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Form\Admin;
 
-use App\Entity\Speaker;
+use App\Entity\Organizer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
@@ -12,26 +10,26 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\UX\Dropzone\Form\DropzoneType;
 
-class SpeakerType extends AbstractType
+class OrganizerType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Nom complet',
+                'label' => 'Nom complet'
             ])
-            ->add('job_title', TextType::class, [
-                'label' => 'Titre',
+            ->add('role', TextType::class, [
+                'label' => 'Rôle'
             ])
             ->add('organization', TextType::class, [
-                'label' => 'Organisation',
+                'label' => 'Organisation'
             ])
             ->add('link', UrlType::class, [
                 'label' => 'Lien',
-                'required' => false,
+                'required' => false
             ])
             ->add('image_file', DropzoneType::class, [
-                'label' => 'Avatar',
+                'label' => 'Photo de profile'
             ])
         ;
     }
@@ -39,7 +37,7 @@ class SpeakerType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Speaker::class,
+            'data_class' => Organizer::class,
         ]);
     }
 }

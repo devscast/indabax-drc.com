@@ -1,20 +1,20 @@
 {% extends 'backend/shared/layout/base.html.twig' %}
-{% block title "Speaher #{data.name}" %}
+{% block title "Organisateur #{data.name}" %}
 
 {% block header %}
     {% embed "backend/shared/component/_header.html.twig" %}
-        {% block header_title "Détails du speaker" %}
+        {% block header_title "Détails de l'organisateur" %}
         {% block header_action_list %}
             <li class="btn-group">
-                <a href="{{ path('admin_speaker_index') }}" class="btn btn-white btn-dim btn-outline-light">
+                <a href="{{ path('admin_organizer_index') }}" class="btn btn-white btn-dim btn-outline-light">
                     {{ 'arrow-long-left' | icon }}
-                    <span>tous les speakers</span>
+                    <span>tous les organisateurs</span>
                 </a>
-                <a href="{{ path('admin_speaker_edit', {id: data.id}) }}" class="btn btn-white btn-dim btn-outline-light">
+                <a href="{{ path('admin_organizer_edit', {id: data.id}) }}" class="btn btn-white btn-dim btn-outline-light">
                     {{ 'edit' | icon }}
                     <span>modifier</span>
                 </a>
-                <form method="post" action="{{ path('admin_speaker_delete', {id: data.id}) }}" class="d-inline-block" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet élément ?');">
+                <form method="post" action="{{ path('admin_organizer_delete', {id: data.id}) }}" class="d-inline-block" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet élément ?');">
                     <input type="hidden" name="_token" value="{{ csrf_token("delete#{data.id}") }}">
                     <button class="btn btn-white btn-dim btn-outline-light btn-delete">
                         {{ 'delete' | icon }}
@@ -44,7 +44,7 @@
                     <h5 class="title">{{ data.name }}</h5>
                 </div>
                 <div class="profile-ud-list">
-                    {{ component.user_data_item('titre', data.jobTitle) }}
+                    {{ component.user_data_item('role', data.role) }}
                     {{ component.user_data_item('Organisation', data.organization) }}
                     {{ component.user_data_link('Lien', data.link) }}
                 </div>

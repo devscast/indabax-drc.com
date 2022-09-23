@@ -4,12 +4,15 @@ vich_uploader:
         type: attribute
 
     mappings:
-        avatar:
-            uri_prefix: /uploads/avatar
-            upload_destination: '%kernel.project_dir%/public/uploads/avatar'
+        organizers:
+            uri_prefix: /uploads/organisers
+            upload_destination: '%kernel.project_dir%/public/uploads/organisers'
             namer: Vich\UploaderBundle\Naming\UniqidNamer
-
-        post:
-            uri_prefix: /uploads/posts
-            upload_destination: '%kernel.project_dir%/public/uploads/posts'
+        sponsors:
+            uri_prefix: /uploads/sponsors
+            upload_destination: '%kernel.project_dir%/public/uploads/sponsors'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
+        speakers:
+            uri_prefix: /uploads/speakers
+            upload_destination: '%kernel.project_dir%/public/uploads/speakers'
             namer: Vich\UploaderBundle\Naming\UniqidNamer

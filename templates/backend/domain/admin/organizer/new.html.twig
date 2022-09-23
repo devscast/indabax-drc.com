@@ -1,14 +1,14 @@
 {% extends 'backend/shared/layout/base.html.twig' %}
-{% block title "Editer un talk" | title %}
+{% block title "Ajouter un organisateur" | title %}
 
 {% block header %}
     {% embed "backend/shared/component/_header.html.twig" %}
-        {% block header_title "Editer un talk" %}
+        {% block header_title "Ajouter un organisateur" %}
         {% block header_action_list %}
             <li>
-                <a href="{{ path('admin_talk_index') }}" class="btn btn-white btn-dim btn-outline-light">
+                <a href="{{ path('admin_organizer_index') }}" class="btn btn-white btn-dim btn-outline-light">
                     {{ 'arrow-long-left' | icon }}
-                    <span>tous les talks</span>
+                    <span>tous les organisateurs</span>
                 </a>
             </li>
         {% endblock %}

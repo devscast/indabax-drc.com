@@ -29,17 +29,8 @@ class Event
     #[ORM\Column]
     private ?\DateTimeImmutable $event_ends_at = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $registration_starts_at = null;
-
-    #[ORM\Column]
-    private ?\DateTimeImmutable $registration_ends_at = null;
-
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
-
-    #[ORM\OneToMany(mappedBy: 'event', targetEntity: Talk::class, orphanRemoval: true)]
-    private Collection $talks;
 
     #[ORM\Column(length: 255)]
     private ?string $location = null;
@@ -50,10 +41,13 @@ class Event
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $google_map_link = null;
 
+    #[ORM\ManyToMany(targetEntity: Speaker::class)]
+    private Collection $speakers;
+
     public function __construct()
     {
-        $this->talks = new ArrayCollection();
         $this->created_at = new \DateTimeImmutable();
+        $this->speakers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -97,30 +91,6 @@ class Event
         return $this;
     }
 
-    public function getRegistrationStartsAt(): ?\DateTimeImmutable
-    {
-        return $this->registration_starts_at;
-    }
-
-    public function setRegistrationStartsAt(?\DateTimeInterface $registration_starts_at): self
-    {
-        $this->registration_starts_at = $this->createDateTimeImmutable($registration_starts_at);
-
-        return $this;
-    }
-
-    public function getRegistrationEndsAt(): ?\DateTimeImmutable
-    {
-        return $this->registration_ends_at;
-    }
-
-    public function setRegistrationEndsAt(?\DateTimeInterface $registration_ends_at): self
-    {
-        $this->registration_ends_at = $this->createDateTimeImmutable($registration_ends_at);
-
-        return $this;
-    }
-
     public function getDescription(): ?string
     {
         return $this->description;
@@ -129,36 +99,6 @@ class Event
     public function setDescription(string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Talk>
-     */
-    public function getTalks(): Collection
-    {
-        return $this->talks;
-    }
-
-    public function addTalk(Talk $talk): self
-    {
-        if (! $this->talks->contains($talk)) {
-            $this->talks->add($talk);
-            $talk->setEvent($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTalk(Talk $talk): self
-    {
-        if ($this->talks->removeElement($talk)) {
-            // set the owning side to null (unless already changed)
-            if ($talk->getEvent() === $this) {
-                $talk->setEvent(null);
-            }
-        }
 
         return $this;
     }
@@ -195,6 +135,30 @@ class Event
     public function setGoogleMapLink(?string $google_map_link): self
     {
         $this->google_map_link = $google_map_link;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Speaker>
+     */
+    public function getSpeakers(): Collection
+    {
+        return $this->speakers;
+    }
+
+    public function addSpeaker(Speaker $speaker): self
+    {
+        if (!$this->speakers->contains($speaker)) {
+            $this->speakers->add($speaker);
+        }
+
+        return $this;
+    }
+
+    public function removeSpeaker(Speaker $speaker): self
+    {
+        $this->speakers->removeElement($speaker);
 
         return $this;
     }
