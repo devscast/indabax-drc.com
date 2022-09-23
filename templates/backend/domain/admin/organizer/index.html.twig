@@ -20,7 +20,36 @@
         <div class="row g-gs">
             {% for user in data %}
                 <div class="col-sm-6 col-lg-4 col-xxl-3">
-                    {% include 'backend/component/_user_card.html.twig' with {user: user} %}
+                    <div class="card shadow-sm">
+                        <div class="card-inner">
+                            <div class="team">
+                                <div class="user-card user-card-s2">
+                                    <div class="user-avatar lg bg-primary">
+                                        {% if user.image %}
+                                            <img src="{{ vich_uploader_asset(user, 'image_file') }}" alt="avatar du contact">
+                                        {% else %}
+                                            <span>{{ user.name | first }}</span>
+                                        {% endif %}
+                                    </div>
+                                    <div class="user-info">
+                                        <h6>{{ user.name }}</h6>
+                                        {% if user.role is defined %}
+                                            <span class="sub-text">{{ user.role }}</span>
+                                        {% endif %}
+                                        {% if user.jobTitle is defined %}
+                                            <span class="sub-text">{{ user.jobTitle }}</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="team-view">
+                                    <a href="{{ path('admin_organizer_show', {id: user.id}) }}" class="btn btn-block btn-dim btn-primary">
+                                        <span>Voir plus</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             {% endfor %}
         </div>
