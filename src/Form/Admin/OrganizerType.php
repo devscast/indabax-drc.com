@@ -16,6 +16,9 @@ class OrganizerType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $data = $builder->getData();
+        $edit = $data instanceof Organizer && $data->getId() !== null;
+
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Nom complet',
@@ -32,6 +35,7 @@ class OrganizerType extends AbstractType
             ])
             ->add('image_file', DropzoneType::class, [
                 'label' => 'Photo de profile',
+                'required' => ! $edit,
             ])
         ;
     }

@@ -18,9 +18,16 @@
 {% block content %}
     {% if data | length > 0 %}
         <div class="row g-gs">
-            {% for user in data %}
+            {% for sponsor in data %}
                 <div class="col-sm-6 col-lg-4 col-xxl-3">
-                    {% include 'backend/component/_user_card.html.twig' with {user: user} %}
+                    <div class="card shadow-sm">
+                        <div class="card-inner">
+                            <a href="{{ path('admin_sponsor_show', {id: sponsor.id}) }}">
+                                <img src="{{ vich_uploader_asset(sponsor, 'image_file') }}" alt="avatar du contact">
+                                <h6>{{ sponsor.name }}</h6>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             {% endfor %}
         </div>

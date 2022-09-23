@@ -16,6 +16,9 @@ class SpeakerType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $data = $builder->getData();
+        $edit = $data instanceof Speaker && $data->getId() !== null;
+
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Nom complet',
@@ -31,7 +34,8 @@ class SpeakerType extends AbstractType
                 'required' => false,
             ])
             ->add('image_file', DropzoneType::class, [
-                'label' => 'Avatar',
+                'label' => 'Photo de profile',
+                'required' => ! $edit,
             ])
         ;
     }

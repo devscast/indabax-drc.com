@@ -32,15 +32,13 @@
         {% block detail_card_body %}
             <div class="nk-block">
                 <div class="nk-block-head">
-                    <div class="user-avatar xl mb-2">
-                        {% if data.image %}
-                            <a href="{{ data.link }}" title="redimensionner la photo de profile">
-                                <img src="{{ vich_uploader_asset(data, 'image_file') }}" alt="avatar du contact">
-                            </a>
-                        {% else %}
-                            <span>{{ data.name | first }}</span>
-                        {% endif %}
-                    </div>
+                    {% if data.image %}
+                        <a href="{{ data.link }}" title="redimensionner la photo de profile">
+                            <img src="{{ vich_uploader_asset(data, 'image_file') }}" alt="avatar du contact">
+                        </a>
+                    {% else %}
+                        <span>{{ data.name | first }}</span>
+                    {% endif %}
                     <h5 class="title">{{ data.name }}</h5>
                 </div>
                 <div class="profile-ud-list">

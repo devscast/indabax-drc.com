@@ -16,6 +16,9 @@ class SponsorType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $data = $builder->getData();
+        $edit = $data instanceof Sponsor && $data->getId() !== null;
+
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Nom',
@@ -25,6 +28,7 @@ class SponsorType extends AbstractType
             ])
             ->add('image_file', DropzoneType::class, [
                 'label' => 'logo du sponsor',
+                'required' => ! $edit,
             ])
         ;
     }
