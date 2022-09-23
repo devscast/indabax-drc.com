@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Form\Admin;
 
 use App\Entity\Organizer;
@@ -16,20 +18,20 @@ class OrganizerType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Nom complet'
+                'label' => 'Nom complet',
             ])
             ->add('role', TextType::class, [
-                'label' => 'Rôle'
+                'label' => 'Rôle',
             ])
             ->add('organization', TextType::class, [
-                'label' => 'Organisation'
+                'label' => 'Organisation',
             ])
             ->add('link', UrlType::class, [
                 'label' => 'Lien',
-                'required' => false
+                'required' => false,
             ])
             ->add('image_file', DropzoneType::class, [
-                'label' => 'Photo de profile'
+                'label' => 'Photo de profile',
             ])
         ;
     }

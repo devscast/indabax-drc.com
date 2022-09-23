@@ -42,8 +42,8 @@ class EventType extends AbstractType
                 'choice_label' => 'name',
                 'multiple' => true,
                 'attr' => [
-                    'is' => 'app-select-choices'
-                ]
+                    'is' => 'app-select-choices',
+                ],
             ])
             ->add('google_form_link', UrlType::class, [
                 'label' => 'Lien formulaire Google',

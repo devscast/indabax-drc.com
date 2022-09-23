@@ -9,7 +9,6 @@ use App\Repository\OrganizerRepository;
 use App\Repository\PricingRepository;
 use App\Repository\SpeakerRepository;
 use App\Repository\SponsorRepository;
-use App\Service\YamlContentService;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Form\Admin;
 
 use App\Entity\Sponsor;
@@ -16,13 +18,13 @@ class SponsorType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Nom'
+                'label' => 'Nom',
             ])
             ->add('link', UrlType::class, [
-                'label' => 'Lien'
+                'label' => 'Lien',
             ])
             ->add('image_file', DropzoneType::class, [
-                'label' => 'logo du sponsor'
+                'label' => 'logo du sponsor',
             ])
         ;
     }

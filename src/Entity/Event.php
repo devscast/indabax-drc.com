@@ -149,7 +149,7 @@ class Event
 
     public function addSpeaker(Speaker $speaker): self
     {
-        if (!$this->speakers->contains($speaker)) {
+        if (! $this->speakers->contains($speaker)) {
             $this->speakers->add($speaker);
         }
 
