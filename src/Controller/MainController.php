@@ -9,6 +9,7 @@ use App\Repository\OrganizerRepository;
 use App\Repository\PricingRepository;
 use App\Repository\SpeakerRepository;
 use App\Repository\SponsorRepository;
+use App\Service\YamlContentService;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -25,7 +26,8 @@ final class MainController extends AbstractController
         SponsorRepository $sponsorRepository,
         SpeakerRepository $speakerRepository,
         EventRepository $eventRepository,
-        PricingRepository $pricingRepository
+        PricingRepository $pricingRepository,
+        YamlContentService $contentService
     ): Response {
         return $this->render(
             view: 'frontend/index.html.twig',
@@ -34,6 +36,7 @@ final class MainController extends AbstractController
                 'sponsors' => $sponsorRepository->findAll(),
                 'speakers' => $speakerRepository->findAll(),
                 'pricing' => $pricingRepository->findOneBy([]),
+                'schedule' => $contentService->get('data.schedule'),
                 'event' => $eventRepository->findOneBy([], orderBy: [
                     'created_at' => 'DESC',
                 ]),

@@ -1,0 +1,122 @@
+day_1:
+    -
+        time: 7:30 - 8:30
+        subject: Arrivé des participants et orateurs et prise de badges
+        speaker: ~
+        room: ~
+    -
+        time: 8:30 - 9:00
+        subject: Mot de bienvenue du Recteur de Mapon University
+        speaker: Pr. Jimy Kalenga
+        room: Amphitheatre
+    -
+        time: 9:00 - 9:10
+        subject: "Mot du Secrétaire Général Académique: Mot du ministère du numérique"
+        speaker: Pr. Python Kabeya
+        room: Amphitheatre
+    -
+        time: 9:10 - 10:00
+        subject: "Key Note: The fourth industrial revolution (4IR)"
+        speaker: Pr. Antoine Bagula
+        room: Amphitheatre
+    -
+        time: 10:00 - 10:30
+        subject: Pause
+        speaker: ~
+        room: ~
+    -
+        time: 10:30 - 11:15
+        subject: "Numérique un lévier de transformation et de bonne gouvernance"
+        speaker: Olga Kavira
+        room: Amphitheatre
+    -
+        time: 11:15 - 12:00
+        subject: "Mathématique pour machine learning et Introdution au machine learning"
+        speaker: Dr.Jordan Masakuna
+        room: Amphitheatre
+    -
+        time: 12:00 - 13:00
+        subject: Pause repas
+        speaker: ~
+        room: ~
+    -
+        time: 13:00 - 14:00
+        subject: "Deep Learning and applications (video conference)"
+        speaker: Pr. Michal Fabinger
+        room: Amphitheatre
+    -
+        time: 14:00 - 14:45
+        subject: "Ingénieur Vs Intelligence artificielle: le grand remplacement ?"
+        speaker: Pr. Lagouge Tartibu
+        room: Amphitheatre
+    -
+        time: 14:45 - 15:00
+        subject: Pause café
+        speaker: ~
+        room: ~
+    -
+        time: 15:00 - 15:30
+        subject: "NLP(video conference)"
+        speaker: MSc. Millicent Ochieng
+        room: Amphithéatre
+    -
+        time: 15:30 - 17:00
+        subject: "Session Pratiques (Environment set up and installation, Colab ou Anaconda) Data manipulation (Visualisation, etc.)"
+        speaker: MSc. Berthine Nyunga, Nicanor Mayumu, Godwill Ilunga et Bernard Ngandu
+        room: Laboratoire Info 1 et 2
+day_2:
+    -
+        time: 8:00 - 8:30
+        subject: Arrivé des participants et orateurs
+        speaker: ~
+        room: ~
+    -
+        time: 8:30 - 10:00
+        subject: AI + Embedded systems (Practical)
+        speaker: MSE Bukasa Tshilombo
+        room: Amphitheatre
+    -
+        time: 10:00 - 10:15
+        subject: Pause café
+        speaker: ~
+        room: ~
+    -
+        time: 10:15 - 11:15
+        subject: Modélisation des données textuelles dans la gestion des investissements (Online)
+        speaker: Prof John Weirstrass Muteba Mwamba
+        room: Amphitheatre
+    -
+        time: 11:15 - 12:00
+        subject: "Deep learning for Partial Differential Equations and applications in Industry"
+        speaker: Dr. Derick Nganyu Tanyu
+        room: Amphitheatre
+    -
+        time: 12:00 - 12:30
+        subject: Pause repas
+        speaker: ~
+        room: ~
+    -
+        time: 12:30 - 13:00
+        subject: Session des Posters
+        speaker: ~
+        room: Amphitheatre
+    -
+        time: 13:00 - 14:00
+        subject: "watershed management, flood prediction using neural network"
+        speaker: MSc. Paulin Tshiunza tshibuabua
+        room: Amphitheatre
+    -
+        time: 14:00 - 15:30
+        subject: "Hackathon Session (Private leaderboard)"
+        speaker: MSc. Berthine Nyunga et Bernard Ngandu
+        room: Amphitheatre
+    -
+        time: 15:30 - 16:00
+        subject: Mot de cloture du Recteur
+        speaker: ~
+        room: Amphitheatre
+    -
+        time: 16:00 - 17:00
+        subject: "Cérémonie de cloture(Remise des certificats de participation) + Mot de remerciement des nos sponsors"
+        speaker: Nicanor Mayumu et Godwill Ilunga
+        room: ~

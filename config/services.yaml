@@ -7,6 +7,7 @@ parameters:
     data.committee: '%kernel.project_dir%/data/committee.yaml'
     data.sponsor: '%kernel.project_dir%/data/sponsor.yaml'
     data.speaker: '%kernel.project_dir%/data/speaker.yaml'
+    data.schedule: '%kernel.project_dir%/data/schedule.yaml'
 
     # sitemap generator
     router.request_context.host: indabax-drc.org

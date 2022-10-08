@@ -5,3 +5,13 @@
 html {
   scroll-behavior: smooth;
 }
+
+#day:checked ~ label .indicator{
+  @apply origin-right;
+}
+#day:checked ~ label .day-1{
+  @apply opacity-50;
+}
+#day:checked ~ label .day-2{
+  @apply opacity-100;
+}
