@@ -170,11 +170,11 @@
                     <div class="indicator absolute left-0 right-0 bottom-0 h-0.5 origin-left scale-x-[.5] bg-primary duration-300 peer-checked:origin-right"></div>
                     <div role="tab" class="cursor-pointer day-1">
                         <h3 class="text-3xl">Jour 1</h3>
-                        <p class="text-gray-400">Jeudi 17 Nov</p>
+                        <p class="text-gray-400">{{ event.eventStartsAt | date('d M')}}</p>
                     </div>
                     <div role="tab" class="cursor-pointer day-2 opacity-50">
                         <h3 class="text-3xl">Jour 2</h3>
-                        <p class="text-gray-400">Vendredi 18 Nov</p>
+                        <p class="text-gray-400">{{ event.eventEndsAt | date('d M') }}</p>
                     </div>
                 </label>
                 <div class="mt-16 peer-checked:hidden">
