@@ -27,7 +27,6 @@ final class MainController extends AbstractController
         SpeakerRepository $speakerRepository,
         EventRepository $eventRepository,
         PricingRepository $pricingRepository,
-        YamlContentService $contentService
     ): Response {
         return $this->render(
             view: 'frontend/index.html.twig',
@@ -36,10 +35,25 @@ final class MainController extends AbstractController
                 'sponsors' => $sponsorRepository->findAll(),
                 'speakers' => $speakerRepository->findAll(),
                 'pricing' => $pricingRepository->findOneBy([]),
-                'schedule' => $contentService->get('data.schedule'),
                 'event' => $eventRepository->findOneBy([], orderBy: [
                     'created_at' => 'DESC',
                 ]),
+            ]
+        );
+    }
+
+    #[Route('/programme', name: 'app_schedule', methods: ['GET'])]
+    public function schedule(
+        YamlContentService $contentService,
+        EventRepository $eventRepository,
+    ): Response {
+        return $this->render(
+            view: 'frontend/schedule.html.twig',
+            parameters: [
+                'event' => $eventRepository->findOneBy([], orderBy: [
+                    'created_at' => 'DESC',
+                ]),
+                'schedule' => $contentService->get('data.schedule'),
             ]
         );
     }
